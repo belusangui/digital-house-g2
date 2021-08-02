@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body>
+    
+    <header>
+    <%- include('partials/header.ejs') %>
+    </header>
+    
+    <main>
+       <section class="perfil-usuario-caja">
+        <h1 class=titulares-principales>Perfil de usuario</h1>
+        <h4>Nombre y Apellido: <%=usuario.full_name%></h4>
+        <p>Username: <%=usuario.user_name%></p>
+        <p>Email: <%=usuario.email%></p>
+        </section>
+
+        <%- include('partials/caja-social') %>
+            
+    </main>  
+    
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+</html>

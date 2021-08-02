@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body>
+    <header>
+    <%- include('partials/header.ejs') %>
+    </header>
+    
+    <main>       
+        <section class="section-crear-producto">
+
+            <h2 class="section-crear-producto-encabezado titulares-secundarios">Publicar Obra</h2>
+
+            <form action="/galeria/crear_producto/" id="crear-producto-form" method="POST" enctype="multipart/form-data">
+
+                <div class="crear-producto">
+                    <label for="nombre">Nombre de la obra</label>
+                    <input type="text" name="nombre" class="crear-producto-field" required>
+                </div>
+                
+                <div class="crear-producto">
+                    <label for="fecha-creacion">Fecha de Creación</label>
+                    <input type="date" name="fecha" class="crear-producto-field"  required>
+                </div>
+ 
+                               
+                <div class="crear-producto">
+                    <label for="medio">Medio</label>
+                    <select name="medio" class="crear-producto-field"  required>
+                        <option>Pintura</option>
+                        <option>Escultura</option>
+                        <option>Fotografía</option>
+                        <option>Dibujo</option>
+                        <option>Textil</option>
+                        <option>Otros medios</option>
+                    </select>
+                </div>
+
+                <div class="crear-producto">
+                    <label for="tema">Temática</label>
+                    <select name="tema" class="crear-producto-field"  required>
+                        <option>Street art</option>
+                        <option>Autoretrato</option>
+                        <option>Popr art</option>
+                        <option>Retrato</option>
+                        <option>Urbano</option>
+                        <option>Paisajes</option>
+                        <option>Naturaleza</option>
+                        <option>Desnudo</option>
+                        <option>Abstracto</option>
+                        <option>Otros temas</option>
+                    </select>
+                </div>
+
+
+
+                <div class="crear-producto crear-producto-dimensiones">
+                    
+                    <h3 class="crear-producto-titulos-secuendarios">Dimensiones  <span>(centímetros)</span></h3>
+                    
+                    <div class="crear-producto-dimensiones-obejeto">
+                        <label for="ancho">ancho</label>
+                        <input type="number" name="ancho" class="crear-producto-field"  required>
+                    </div>
+                    <div lass="crear-producto-dimensiones-obejeto">
+                        <label for="alto">alto</label>
+                        <input type="number" name="alto" class="crear-producto-field"  required>
+                    </div>
+                    <div lass="crear-producto-dimensiones-obejeto">
+                        <label for="profundidad">profundidad</label>
+                         <input type="number" name="profundidad" class="crear-producto-field"  required>
+                    </div>  
+                </div>
+
+                <div class="crear-producto crear-producto-descripcion">
+                    <label for="descripcion">Descripción de la obra</label>
+                    <input type="textarea" name="descripcion" class="crear-producto-field"  required>
+
+                </div>
+
+
+
+                <div class="crear-producto crear-producto-fotos">
+                    <label for="fotos">Imágenes de la obra</label>
+                    <input type="file" name="fotos" class="crear-producto-field" required>
+                </div>
+
+                <div class="crear-producto crear-producto-precio">
+                    <label for="precio">Precio de la obra</label>
+                    <input type="number" name="precio" class="crear-producto-field" placeholder=>
+                </div>
+
+                <div class="crear-producto crear-producto-precio">
+                    <label for="descuento">Descuento</label>
+                    <input type="number" name="descuento" class="crear-producto-field" placeholder=>
+                </div>
+
+
+                <div class="crearproducto crear-producto-botonera">
+                    <input type="submit" class="crear-producto-field" value="Subir obra">
+                    <input type="reset" class="crear-producto-field" value="Borrar formulario">
+                </div>
+            </form>
+            
+        </section> 
+
+    </main>  
+    
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+</html>

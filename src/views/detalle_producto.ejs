@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<!---->
+
+
+<body>
+
+    <header>
+    <%- include('partials/header.ejs') %>
+    </header>
+
+    <!---->
+
+    <main>
+        <div class="header-background">
+
+        </div>
+        <section class="producto">
+            <div class="producto-imagen">
+                <div class="producto-imagen-principal">
+                    <img src="/img/<%=product.img%>" alt="<%=product.name%>">
+                </div>
+                <div class="producto-imagenes-miniaturas">
+
+                </div>
+            </div>
+            <div class="producto-info-detalle-1">
+                <h1><%=product.name%><span></span></h1>
+                <h2><%=product.artist%></h2>
+            </div>
+            <div class="producto-info-detalle-2">
+                    <ul class="producto-info-detalle-list">
+                        <li>
+                            <div class="titulo">
+                                Técnica
+                            </div>
+                            <div class="info">
+                                <%=product.medium%>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="titulo">
+                                Otros detalles
+                            </div>
+                            <div class="info">
+                                <%=product.category%>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="titulo">
+                                Dimensiones
+                            </div>
+                            <div class="info">
+                                <%=product.size%>
+                            </div>
+                        </li>
+                    </ul>
+            </div>
+            <div class="producto-info-detalle-3">
+            <h1>Sobre la obra</h1>
+                <p><%=product.description%></p>
+            </div>
+            <div class="producto-compra">
+                <div class="producto-compra-precio">
+                    <h1>$<%=product.price%></h1>
+                </div>
+                <div>
+                    <h4>Envío y devolución gratis.</h4>
+                </div>
+                <div class="producto-botonera">
+                    <form action="/" method="get">
+                        <button type="submit" id="boton-agregar-carrito">Adquirir esta obra</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

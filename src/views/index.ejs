@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body>
+
+    <header>
+        <%- include('partials/header.ejs') %>
+    </header>
+
+<!---->
+
+    <main>
+
+        <div id="carousel-main" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carousel-main" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel-main" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carousel-main" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/img/slide1-carrousel-main.jpg" class="d-block w-100 imagen-carrousel" alt="...">
+                <div class="carrousel-texto">
+                  <p class="parrafos-carrousel">Descubre el universo creativo de artistas independientes.</p>
+                  <a href="galeria" class="botonCTA">Explorar</a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="/img/slide2-carrousel-main.jpg" class="d-block w-100 imagen-carrousel" alt="...">
+                <div class="carrousel-texto">
+                  <p class="parrafos-carrousel">Descubra el universo creativo de nuestros artistas.</p>
+                  <a href="galeria" class="botonCTA">Explorar</a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="/img/slide3-car-main.jpg" class="d-block w-100 imagen-carrousel" alt="...">
+                <div class="carrousel-texto">
+                  <p class="parrafos-carrousel">Some representative placeholder content for the third slide.</p>
+                  <a href="galeria" class="botonCTA">Ver categorias</a>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-main" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel-main" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+        <section id="infoSeguridad">
+            <div class="items">
+                <p class="iconos"><i class="fas fa-shield-alt iconos-seguridad"></i></p>
+                <h3 class="titulares-terciarios">Compra 100% segura</h3>
+            </div>
+
+            <div class="items">
+                <p class="iconos"><i class="fas fa-credit-card iconos-seguridad"></i></p>
+                <h3 class="titulares-terciarios">Cuotas sin interés</h3>
+            </div>
+
+            <div class="items">
+                <p class="iconos"><i class="fas fa-truck iconos-seguridad"></i></p>
+                <h3 class="titulares-terciarios">Envio gratis en compras + $2.000</h3>
+            </div>
+        </section>
+
+        <section id="main-row">
+
+            <h1 class="titular-main-row">Compra arte original de artistas independientes de todo el mundo.</h1>
+
+        </section>
+
+
+        <!---->
+
+
+        <section class="categorias">
+
+            <h1 class="categoria-barra titulares-secundarios">Categorías destacadas</h1>
+
+            <article id="categoria-1">
+
+                <div class="categoria-contenedor-detalle">
+                    <h2 class="categoria-contenedor-detalle-texto">Dibujo</h2>
+                </div>
+
+                <div class="categoria-contenedor-imagen">
+                   <img src="/img/dibujo-Mia-Zavalia.png" alt="Dibujo Mia Zavalia">
+                </div>
+
+            </article>
+
+            <article id="categoria-2">
+
+                <div class="categoria-contenedor-detalle">
+                    <h2 class="categoria-contenedor-detalle-texto">Paisajismo</h2>
+                </div>
+
+                <div class="categoria-contenedor-imagen">
+                   <img src="/img/paisajismo-diana-malivani.png" alt="Paisajismo">
+                </div>
+
+            </article>
+
+            <article id="categoria-3">
+
+                <div class="categoria-contenedor-detalle">
+                    <h2 class="categoria-contenedor-detalle-texto">Abstracto</h2>
+                </div>
+
+                <div class="categoria-contenedor-imagen">
+                   <img src="/img/abstracto-claire.jpg" alt="Abstracto">
+                </div>
+
+            </article>
+
+            <article id="categoria-4">
+
+                <div class="categoria-contenedor-detalle">
+                    <h2 class="categoria-contenedor-detalle-texto">Retrato</h2>
+                </div>
+
+                <div class="categoria-contenedor-imagen">
+                   <img src="/img/Retrato.jpeg" alt="Pop Art">
+                </div>
+
+            </article>
+
+            <article id="categoria-5">
+
+                <div class="categoria-contenedor-detalle">
+                    <h2 class="categoria-contenedor-detalle-texto">Fotografía</h2>
+                </div>
+
+                <div class="categoria-contenedor-imagen">
+                   <img src="/img/foto-rich-stapelton.png" alt="Fotografía">
+                </div>
+
+            </article>
+
+            <article id="categoria-6">
+
+                <div class="categoria-contenedor-detalle-6">
+                    <h2 class="categoria-contenedor-detalle-texto">Escultura</h2>
+                </div>
+
+                <div class="categoria-contenedor-imagen-6">
+                   <img src="/img/Esculturas.png" alt="Escultura">
+                </div>
+
+            </article>
+
+        </section>
+
+        <!---->
+
+        
+        <section class="productos-destacados">
+            <div class="linea">
+            </div>
+            <h2 class="titulares-secundarios">Los más vistos</h2>
+            <div class="productos-destacados-carrousel"></div>
+            </div>
+        </section>
+
+        <!---->
+
+        <section class="vender-tus-obras">
+            <div class="linea2">
+            </div>
+            <div class="vender-tus-obras-contenedor-imagen">
+                <img src="/img/marcos-obras.jpg" alt="Vende tus obras">
+            </div>
+
+            <div class="vender-tus-obras-texto">
+                <h2 class="titulares-secundarios">Vendé <br> tus obras <br> con nosotros</h2>
+                <p class="parrafos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat mollitia maxime at? </p>
+                <button id="vender">Vender</button>
+            </div>
+            
+        </section>
+
+         <!---->
+
+        <%- include('partials/caja-social') %>
+
+        <!---->
+        
+
+
+<br>
+
+
+
+
+
+
+    </main>
+
+    <footer>
+
+    <%- include('partials/footer.ejs') %>
+    
+    </footer>
+    
+    <!--Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

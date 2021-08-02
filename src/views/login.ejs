@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<head>
+    <%- include('partials/head.ejs') %>
+</head>
+
+<body>
+
+    <header>
+    <%- include('partials/header.ejs') %>
+    </header>
+
+    <main>
+        <!-- Formulario Log in -->
+        <section class="login-caja-ppal">
+            <div class="login-caja1">
+                <h2 class="titulares-secundarios">Hola,<br>amantes del arte.</h2>
+                <button id="login-google">Ingresar con Google</button>
+                <p class="parrafos">─ o ─</p>
+                <form action="./" id="login-form" method="POST">
+                    <div class="form-section">
+                        <input type="email" name="email" class="login-field" placeholder="Email">
+                    </div>
+                    <div class="form-section">
+                        <input type="password" name="password" class="login-field" placeholder="Contraseña">
+                    </div>
+                    <div class="form-section">
+                        <a href="./index"><button type="submit" id="boton-acceder">Acceder</button></a>
+                    </div>
+                </form>
+                <a class="textos-mini" href="">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="opcion-registrarse">
+                <p class="parrafos">¿No tienes una cuenta? <a href="./registro">Regístrate.</a></p>
+            </div>
+            <div class="opcion-registrarse-desktop">
+                <h2 class="titulares-terciarios">Regístrate.</h2>
+                <p class="parrafos">Si todavía no tienes una cuenta, usá esta opción para acceder a nuestro formulario de registro.</p>
+                <a href="./crear_cuenta" id="opcion-crear-cuenta">Crear tu cuenta</a>
+            </div>
+        </section>
+        
+    
+       <%- include('partials/caja-social') %>
+       
+    </main>
+    <footer>
+        <%- include('partials/footer') %>
+    </footer>
+</body>
+
+<html>
