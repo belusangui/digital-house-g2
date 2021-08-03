@@ -23,7 +23,6 @@ let controller = {
             if(product.id == idObra){
                 productoEncontrado = product;
             }
-            break
         }
         res.render('detalle_producto', {product : productoEncontrado});
     },
