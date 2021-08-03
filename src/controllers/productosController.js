@@ -31,7 +31,7 @@ let controller = {
     },
     
     storeProduct: (req, res) => {
-        console.log(req.file)
+        console.log(req.body);
        let idNuevo=0
       for(let p of productosArchivo){
           if(idNuevo<p.id){
@@ -45,20 +45,23 @@ let controller = {
         let productoNuevo={
             id: idNuevo,
             name: req.body.nombre,
-            date: req.body.fecha,
+            artist: req.body.artista,
             medium: req.body.medio,
             category: req.body.tema,
             description: req.body.descripcion,
-            size: req.body.ancho + 'x' + req.body.alto + 'cm',
             price: req.body.precio,
-            discount: req.body.descuento + '% off',
+            discount: req.body.descuento,
+            width: req.body.ancho,
+            height: req.body.alto,
+            other_details: req.body.otros_detalles,
+            year: req.body.year,
             img: nombreImagen
         };
 
 
         productosArchivo.push(productoNuevo);
 
-        (fs.readFileSync(productsFilePath, 'utf-8'));
+        //(fs.readFileSync(productsFilePath, 'utf-8'));    Fede cual seria el proposito de esta linea? La comenté porque para mi no va.
         fs.writeFileSync(productsFilePath, JSON.stringify(productosArchivo, null, ' '));
 
         res.redirect('/galeria')

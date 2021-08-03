@@ -21,10 +21,15 @@
                     <label for="nombre">Nombre de la obra</label>
                     <input type="text" name="nombre" class="crear-producto-field" required>
                 </div>
+
+                <div class="crear-producto">
+                    <label for="artista">Artista</label>
+                    <input type="text" name="artista" class="crear-producto-field" required>
+                </div>
                 
                 <div class="crear-producto">
-                    <label for="fecha-creacion">Fecha de Creación</label>
-                    <input type="date" name="fecha" class="crear-producto-field"  required>
+                    <label for="fecha-creacion">Año de Creación</label>
+                    <input type="text" name="year" class="crear-producto-field"  required>
                 </div>
  
                                
@@ -70,15 +75,17 @@
                         <label for="alto">alto</label>
                         <input type="number" name="alto" class="crear-producto-field"  required>
                     </div>
-                    <div lass="crear-producto-dimensiones-obejeto">
-                        <label for="profundidad">profundidad</label>
-                         <input type="number" name="profundidad" class="crear-producto-field"  required>
-                    </div>  
                 </div>
 
                 <div class="crear-producto crear-producto-descripcion">
                     <label for="descripcion">Descripción de la obra</label>
-                    <input type="textarea" name="descripcion" class="crear-producto-field"  required>
+                    <textarea name="descripcion" class="crear-producto-field"  required></textarea>
+
+                </div>
+
+                <div class="crear-producto crear-producto-descripcion">
+                    <label for="otros_detalles">Otros detalles</label>
+                    <textarea name="otros_detalles" class="crear-producto-field" placeholder="Ej: Enmarcado, soporte, peso" required></textarea>
 
                 </div>
 
@@ -91,16 +98,16 @@
 
                 <div class="crear-producto crear-producto-precio">
                     <label for="precio">Precio de la obra</label>
-                    <input type="number" name="precio" class="crear-producto-field" placeholder=>
+                    <input type="number" name="precio" class="crear-producto-field">
                 </div>
 
                 <div class="crear-producto crear-producto-precio">
                     <label for="descuento">Descuento</label>
-                    <input type="number" name="descuento" class="crear-producto-field" placeholder=>
+                    <input type="number" name="descuento" class="crear-producto-field">
                 </div>
 
 
-                <div class="crearproducto crear-producto-botonera">
+                <div class="crear-producto crear-producto-botonera">
                     <input type="submit" class="crear-producto-field" value="Subir obra">
                     <input type="reset" class="crear-producto-field" value="Borrar formulario">
                 </div>
