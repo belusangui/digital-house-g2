@@ -12,9 +12,6 @@
 * **Noelia Abate** Comunicadora social y fotografa. 36 años.
   Buenos Aires, Argentina.
 
-* **Agustín Dell'orto** Realizador audiovisual y montajista freelance. 37 años. 
-  Buenos Aires, Argentina. 
-
 * **Federico Alonso** Alumno en Digital House. 19 años. 
   Buenos Aires, Argentina. 
 
@@ -33,7 +30,7 @@ Para el artista/vendedor el sitio es una vidriera de sus obras, permitiendo most
 
 ## Link al tablero de trabajo en Trello.
 
-https://trello.com/b/ii0K7kP9/dhgrupo2-0521cd-full-stack
+https://trello.com/b/DLUoigTo/sitio-arte
 
 ## 5 páginas referentes en las que se basa nuestro proyecto.
 
