@@ -25,20 +25,30 @@
                         <input value="<%=obraAEditar.name %>"type="text" name="nombre" class="crear-producto-field" required>
                     </div>
 
-                    <!--<div class="crear-producto">
+                    <div class="crear-producto">
                         <label for="nombre">Artista</label>
                         <input value="<%=obraAEditar.artist %>"type="text" name="nombre" class="crear-producto-field" required>
-                    </div>-->
+                    </div>
                     
                     <div class="crear-producto">
-                        <label for="fecha-creacion">Fecha de Creación</label>
-                        <input type="date" name="fecha-creacion" class="crear-producto-field"  required>
+                        <label for="fecha-creacion">Año de Creación</label>
+                        <input value="<%=obraAEditar.year %>" type="text" name="year" class="crear-producto-field"  required>
                     </div>
      
                                    
                     <div class="crear-producto">
-                        <label for="medium">Medio</label>
+                        <label for="medio">Medio</label>
                         <select name="medio" class="crear-producto-field"  required>
+                            <% let medios = ['Pintura', 'Escultura','Fotografia','Dibujo', 'Textil', 'Otros medios']%>
+                            <% for(let unMedio of medios) { %>
+                                <option 
+                                    value = "<%= unMedio %>"
+                                    <%= locals.oldData && (unMedio === oldData.medios) ? 'selected' : null %>
+                                >
+                                <%= unMedio %></option>
+                            <% } %>
+                        </select>
+                        <!--
                             <% if (obraAEditar.medium=="painting") { %>
                                 <option value="painting" selected>Pintura</option>
                                 <option value="sculpture">Escultura</option>
@@ -62,7 +72,7 @@
                                 <option value="other">Otros medios</option>
                             <% } else if (obraAEditar.medium=="drawing"){ %>
                                 <option value="painting" >Pintura</option>
-                                <option value="sculpture" selected>Escultura</option>
+                                <option value="sculpture">Escultura</option>
                                 <option value="photography">Fotografía</option>
                                 <option value="drawing" selected>Dibujo</option>
                                 <option value="textile">Textil</option>
@@ -82,13 +92,22 @@
                                 <option value="textile" >Textil</option>
                                 <option value="other" selected>Otros medios</option>
                             <% } %>
-                        </select>
+                        </select>-->
                     </div>
                     
                         
                     <div class="crear-producto">
-                        <label for="category">Temática</label>
+                        <label for="tema">Temática</label>
                         <select name="tema" class="crear-producto-field"  required>
+                            <!--<% let categorias = ['Street art', 'Autoretrato','Pop art','Retrato', 'Urbano', 'Paisajes', 'Naturaleza', 'Desnudo', 'Abstracto', 'Otros temas']%>
+                            <% for(let unaCategoria of categorias) { %>
+                                <option 
+                                    value = "<%= unaCategoria %>"
+                                    <%= unaCategoria === categorias ? 'selected' : null %>
+                                >
+                                <%= unaCategoria %></option>
+                            <% } %>
+                        </select>-->
                             <% if (obraAEditar.category=="street art") { %>
                                 <option value="street art" selected>Street art</option>
                                 <option value= "self-portrait">Autoretrato</option>
@@ -211,29 +230,30 @@
                         
                         <div class="crear-producto-dimensiones-obejeto">
                             <label for="ancho">ancho</label>
-                            <input type="number" name="ancho" class="crear-producto-field"  required>
+                            <input value="<%=obraAEditar.width %>"type="number" name="ancho" class="crear-producto-field"  required>
                         </div>
                         <div lass="crear-producto-dimensiones-obejeto">
                             <label for="alto">alto</label>
-                            <input type="number" name="alto" class="crear-producto-field"  required>
+                            <input value="<%=obraAEditar.height %>"type="number" name="alto" class="crear-producto-field"  required>
                         </div>
-                        <div lass="crear-producto-dimensiones-obejeto">
-                            <label for="profundidad">profundidad</label>
-                             <input type="number" name="profundidad" class="crear-producto-field"  required>
-                        </div>  
+                          
                     </div>
-    
+
                     <div class="crear-producto crear-producto-descripcion">
                         <label for="descripcion">Descripción de la obra</label>
-                        <input value="<%=obraAEditar.description %>"type="textarea" name="descripcion" class="crear-producto-field"  required>
+                        <textarea value="<%=obraAEditar.description %>" name="descripcion" class="crear-producto-field"  required></textarea>
     
                     </div>
+
+                    <div class="crear-producto crear-producto-descripcion">
+                        <label for="otros_detalles">Otros detalles</label>
+                        <textarea value="<%=obraAEditar.other_details %>" name="otros_detalles" class="crear-producto-field" placeholder="Ej: Enmarcado, soporte, peso" required></textarea>
     
-    
+                    </div>
     
                     <div class="crear-producto crear-producto-fotos">
                         <label for="fotos">Imágenes de la obra</label>
-                        <input type="file" name="fotos" class="crear-producto-field"  enctype="multipart/form-data" required>
+                        <input value="<%=obraAEditar.img %>" type="file" name="fotos" class="crear-producto-field"  required>
                     </div>
     
                     <div class="crear-producto crear-producto-precio">

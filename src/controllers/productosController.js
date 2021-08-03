@@ -89,35 +89,50 @@ let controller = {
         let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         let id = req.params.id;
-        console.log("datos:",req.body);
+        
 
 
 		for (let obra of products){
 			if (id==obra.id){
-				obra.name= req.body.name;
-				obra.artist= req.body.artist;
-				obra.medium= req.body.medium;
-				obra.category= req.body.category;
-				obra.description= req.body.description;
-                obra.size= req.body.size;
-                obra.price= req.body.price;
-                obra.discount= req.body.discount;
+				obra.name= req.body.nombre;
+				obra.artist= req.body.artista;
+				obra.medium= req.body.medio;
+				obra.category= req.body.tema;
+				obra.description= req.body.descripcion;
+                obra.price= req.body.precio;
+                obra.discount= req.body.descuento;
+                obra.width= req.body.ancho;
+                obra.height= req.body.alto;
+                obra.other_details= req.body.otros_detalles,
+                obra.year= req.body.year;
+                obra.img= req.file.filename;
 				break;
+                
 			}
 		}
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
 
-		res.redirect('/');
+		res.redirect('/galeria');
     },
 
     delete: (req, res) => {
         let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let id = req.params.id;
 
+        let ProductoEncontrado;
+
 		let newProduct = products.filter(function(obra){
 			return id!=obra.id;
 		})
+
+        for (let producto of products){
+			if (producto.id == id){
+			    ProductoEncontrado=producto;
+			}
+		}
+
+		fs.unlinkSync(path.join(__dirname, '../../public/img', ProductoEncontrado.img));
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(newProduct,null,' '));
 

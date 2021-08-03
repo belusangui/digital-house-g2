@@ -30,7 +30,7 @@ router.post ('/crear_producto', uploadFile.single('fotos'), productosController.
 
 router.get ('/editar_producto/:id', productosController.editProduct);
 
-router.put ('/editar_producto/:id', productosController.editStore);
+router.put ('/editar_producto/:id', uploadFile.single('fotos'),productosController.editStore);
 
 router.delete('/:id', productosController.delete);
 
