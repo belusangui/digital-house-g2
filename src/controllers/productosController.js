@@ -22,9 +22,10 @@ let controller = {
         for (let product of products) {
             if(product.id == idObra){
                 productoEncontrado = product;
-                res.render('detalle_producto', {product : productoEncontrado});
-            };
-        };
+            }
+            break
+        }
+        res.render('detalle_producto', {product : productoEncontrado});
     },
     createProduct: (req, res) => {
         res.render('crear_producto');
