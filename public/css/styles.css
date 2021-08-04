@@ -755,7 +755,10 @@ position: absolute;
     width: 25%;
 }
 
-
+.section-crear-producto textarea {
+    border: 0px;
+    border-radius: 3px;
+}
 
 .crear-producto input, select, option{
     color: #292929;

@@ -79,8 +79,6 @@ let controller = {
 				obraId=obra;
 			}
 		}
-        
-		
         res.render('editar_producto',{obraAEditar: obraId}); 
     },
 

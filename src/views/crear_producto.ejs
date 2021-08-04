@@ -36,28 +36,24 @@
                 <div class="crear-producto">
                     <label for="medio">Medio</label>
                     <select name="medio" class="crear-producto-field"  required>
-                        <option>Pintura</option>
-                        <option>Escultura</option>
-                        <option>Fotografía</option>
-                        <option>Dibujo</option>
-                        <option>Textil</option>
-                        <option>Otros medios</option>
+                        <% let medios = ['Pintura', 'Escultura','Fotografía','Dibujo', 'Textil', 'Collage']%>
+                            <% for(let unMedio of medios) { %>
+                                <option value = "<%= unMedio %>">
+                                    <%= unMedio %>
+                                </option>
+                        <% } %>
                     </select>
                 </div>
 
                 <div class="crear-producto">
                     <label for="tema">Temática</label>
                     <select name="tema" class="crear-producto-field"  required>
-                        <option>Street art</option>
-                        <option>Autoretrato</option>
-                        <option>Pop art</option>
-                        <option>Retrato</option>
-                        <option>Urbano</option>
-                        <option>Paisajes</option>
-                        <option>Naturaleza</option>
-                        <option>Desnudo</option>
-                        <option>Abstracto</option>
-                        <option>Otros temas</option>
+                        <% let categorias = ['Street art', 'Autoretrato','Retrato', 'Urbano', 'Paisajes', 'Naturaleza', 'Desnudo', 'Abstracto', 'Pop Art']%>
+                        <% for(let unaCategoria of categorias) { %>
+                            <option value = "<%= unaCategoria %>">
+                            <%= unaCategoria %>
+                            </option>
+                        <% } %>
                     </select>
                 </div>
 

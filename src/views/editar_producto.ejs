@@ -39,187 +39,32 @@
                     <div class="crear-producto">
                         <label for="medio">Medio</label>
                         <select name="medio" class="crear-producto-field"  required>
-                            <% let medios = ['Pintura', 'Escultura','Fotografia','Dibujo', 'Textil', 'Otros medios']%>
+                            <% let medios = ['Pintura', 'Escultura','Fotografía','Dibujo', 'Textil', 'Collage']%>
                             <% for(let unMedio of medios) { %>
                                 <option 
                                     value = "<%= unMedio %>"
-                                    <%= locals.oldData && (unMedio === oldData.medios) ? 'selected' : null %>
+                                    <%= unMedio === obraAEditar.medium ? 'selected' : null %>
                                 >
                                 <%= unMedio %></option>
                             <% } %>
                         </select>
-                        <!--
-                            <% if (obraAEditar.medium=="painting") { %>
-                                <option value="painting" selected>Pintura</option>
-                                <option value="sculpture">Escultura</option>
-                                <option value="photography">Fotografía</option>
-                                <option value="drawing">Dibujo</option>
-                                <option value="textile">Textil</option>
-                                <option value="other">Otros medios</option>
-                            <% } else if (obraAEditar.medium=="sculpture"){ %>
-                                <option value="painting" >Pintura</option>
-                                <option value="sculpture" selected>Escultura</option>
-                                <option value="photography">Fotografía</option>
-                                <option value="drawing">Dibujo</option>
-                                <option value="textile">Textil</option>
-                                <option value="other">Otros medios</option>
-                            <% } else if (obraAEditar.medium=="photography"){ %>
-                                <option value="painting" >Pintura</option>
-                                <option value="sculpture" >Escultura</option>
-                                <option value="photography" selected>Fotografía</option>
-                                <option value="drawing">Dibujo</option>
-                                <option value="textile">Textil</option>
-                                <option value="other">Otros medios</option>
-                            <% } else if (obraAEditar.medium=="drawing"){ %>
-                                <option value="painting" >Pintura</option>
-                                <option value="sculpture">Escultura</option>
-                                <option value="photography">Fotografía</option>
-                                <option value="drawing" selected>Dibujo</option>
-                                <option value="textile">Textil</option>
-                                <option value="other">Otros medios</option>
-                            <% } else if (obraAEditar.medium=="textile"){ %>
-                                <option value="painting" >Pintura</option>
-                                <option value="sculpture" >Escultura</option>
-                                <option value="photography">Fotografía</option>
-                                <option value="drawing">Dibujo</option>
-                                <option value="textile" selected>Textil</option>
-                                <option value="other">Otros medios</option>
-                            <% } else { %>
-                                <option value="painting" >Pintura</option>
-                                <option value="sculpture" >Escultura</option>
-                                <option value="photography">Fotografía</option>
-                                <option value="drawing">Dibujo</option>
-                                <option value="textile" >Textil</option>
-                                <option value="other" selected>Otros medios</option>
-                            <% } %>
-                        </select>-->
                     </div>
                     
                         
                     <div class="crear-producto">
                         <label for="tema">Temática</label>
                         <select name="tema" class="crear-producto-field"  required>
-                            <!--<% let categorias = ['Street art', 'Autoretrato','Pop art','Retrato', 'Urbano', 'Paisajes', 'Naturaleza', 'Desnudo', 'Abstracto', 'Otros temas']%>
+
+                           <% let categorias = ['Street art', 'Autoretrato','Retrato', 'Urbano', 'Paisajes', 'Naturaleza', 'Desnudo', 'Abstracto', 'Pop Art']%>
                             <% for(let unaCategoria of categorias) { %>
                                 <option 
                                     value = "<%= unaCategoria %>"
-                                    <%= unaCategoria === categorias ? 'selected' : null %>
+                                    <%= unaCategoria === obraAEditar.category ? 'selected' : null %>
                                 >
                                 <%= unaCategoria %></option>
                             <% } %>
-                        </select>-->
-                            <% if (obraAEditar.category=="street art") { %>
-                                <option value="street art" selected>Street art</option>
-                                <option value= "self-portrait">Autoretrato</option>
-                                <option value="pop-art">Pop art</option>
-                                <option value="portrait">Retrato</option>
-                                <option value="urban">Urbano</option>
-                                <option value="landscape">Paisajes</option>
-                                <option value="nature">Naturaleza</option>
-                                <option value="nudism">Desnudo</option>
-                                <option value="abstract">Abstracto</option>
-                                <option value="other">Otros temas</option>
-                            <% } else if(obraAEditar.category=="self-portrait"){ %>
-                                <option value="street art" >Street art</option>
-                                <option value= "self-portrait" selected>Autoretrato</option>
-                                <option value="pop-art">Pop art</option>
-                                <option value="portrait">Retrato</option>
-                                <option value="urban">Urbano</option>
-                                <option value="landscape">Paisajes</option>
-                                <option value="nature">Naturaleza</option>
-                                <option value="nudism">Desnudo</option>
-                                <option value="abstract">Abstracto</option>
-                                <option value="other">Otros temas</option>
-                            <% } else if (obraAEditar.category=="pop-art"){ %>
-                                <option value="street art" >Street art</option>
-                                <option value= "self-portrait" >Autoretrato</option>
-                                <option value="pop-art" selected>Pop art</option>
-                                <option value="portrait">Retrato</option>
-                                <option value="urban">Urbano</option>
-                                <option value="landscape">Paisajes</option>
-                                <option value="nature">Naturaleza</option>
-                                <option value="nudism">Desnudo</option>
-                                <option value="abstract">Abstracto</option>
-                                <option value="other">Otros temas</option>
-                            <% } else if (obraAEditar.category=="portrait"){ %>
-                                <option value="street art" >Street art</option>
-                                <option value= "self-portrait" >Autoretrato</option>
-                                <option value="pop-art" >Pop art</option>
-                                <option value="portrait" selected>Retrato</option>
-                                <option value="urban">Urbano</option>
-                                <option value="landscape">Paisajes</option>
-                                <option value="nature">Naturaleza</option>
-                                <option value="nudism">Desnudo</option>
-                                <option value="abstract">Abstracto</option>
-                                <option value="other">Otros temas</option>
-                            <% } else if (obraAEditar.category=="urban"){ %>
-                                <option value="street art" >Street art</option>
-                                <option value= "self-portrait" >Autoretrato</option>
-                                <option value="pop-art" >Pop art</option>
-                                <option value="portrait" >Retrato</option>
-                                <option value="urban" selected>Urbano</option>
-                                <option value="landscape">Paisajes</option>
-                                <option value="nature">Naturaleza</option>
-                                <option value="nudism">Desnudo</option>
-                                <option value="abstract">Abstracto</option>
-                                <option value="other">Otros temas</option>
-                            <% } else if (obraAEditar.category=="landscape"){ %>
-                                <option value="street art" >Street art</option>
-                                <option value= "self-portrait" >Autoretrato</option>
-                                <option value="pop-art" >Pop art</option>
-                                <option value="portrait" >Retrato</option>
-                                <option value="urban" >Urbano</option>
-                                <option value="landscape" selected>Paisajes</option>
-                                <option value="nature">Naturaleza</option>
-                                <option value="nudism">Desnudo</option>
-                                <option value="abstract">Abstracto</option>
-                                <option value="other">Otros temas</option>
-                            <% } else if (obraAEditar.category=="nature"){ %>
-                                <option value="street art" >Street art</option>
-                                <option value= "self-portrait" >Autoretrato</option>
-                                <option value="pop-art" >Pop art</option>
-                                <option value="portrait" >Retrato</option>
-                                <option value="urban" >Urbano</option>
-                                <option value="landscape" >Paisajes</option>
-                                <option value="nature" selected>Naturaleza</option>
-                                <option value="nudism">Desnudo</option>
-                                <option value="abstract">Abstracto</option>
-                                <option value="other">Otros temas</option>
-                            <% } else if (obraAEditar.category=="nudism"){ %>
-                                <option value="street art" >Street art</option>
-                                <option value= "self-portrait" >Autoretrato</option>
-                                <option value="pop-art" >Pop art</option>
-                                <option value="portrait" >Retrato</option>
-                                <option value="urban" >Urbano</option>
-                                <option value="landscape" >Paisajes</option>
-                                <option value="nature" >Naturaleza</option>
-                                <option value="nudism" selected>Desnudo</option>
-                                <option value="abstract">Abstracto</option>
-                                <option value="other">Otros temas</option>
-                            <% } else if (obraAEditar.category=="abstract"){ %>
-                                <option value="street art" >Street art</option>
-                                <option value= "self-portrait" >Autoretrato</option>
-                                <option value="pop-art" >Pop art</option>
-                                <option value="portrait" >Retrato</option>
-                                <option value="urban" >Urbano</option>
-                                <option value="landscape" >Paisajes</option>
-                                <option value="nature" >Naturaleza</option>
-                                <option value="nudism" >Desnudo</option>
-                                <option value="abstract" selected>Abstracto</option>
-                                <option value="other">Otros temas</option>
-                            <% } else { %>
-                                <option value="street art" >Street art</option>
-                                <option value= "self-portrait" >Autoretrato</option>
-                                <option value="pop-art" >Pop art</option>
-                                <option value="portrait" >Retrato</option>
-                                <option value="urban" >Urbano</option>
-                                <option value="landscape" >Paisajes</option>
-                                <option value="nature" >Naturaleza</option>
-                                <option value="nudism" >Desnudo</option>
-                                <option value="abstract" >Abstracto</option>
-                                <option value="other" selected>Otros temas</option>
-                            <% } %>
-                            </select>
+
+                        </select>
                     </div>
     
     
@@ -241,13 +86,13 @@
 
                     <div class="crear-producto crear-producto-descripcion">
                         <label for="descripcion">Descripción de la obra</label>
-                        <textarea value="<%=obraAEditar.description %>" name="descripcion" class="crear-producto-field"  required></textarea>
+                        <textarea name="descripcion" class="crear-producto-field"  required><%=obraAEditar.description %></textarea>
     
                     </div>
 
                     <div class="crear-producto crear-producto-descripcion">
                         <label for="otros_detalles">Otros detalles</label>
-                        <textarea value="<%=obraAEditar.other_details %>" name="otros_detalles" class="crear-producto-field" placeholder="Ej: Enmarcado, soporte, peso" required></textarea>
+                        <textarea name="otros_detalles" class="crear-producto-field" placeholder="Ej: Enmarcado, soporte, peso" required><%=obraAEditar.other_details %></textarea>
     
                     </div>
     
