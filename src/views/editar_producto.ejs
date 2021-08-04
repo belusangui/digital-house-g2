@@ -26,8 +26,8 @@
                     </div>
 
                     <div class="crear-producto">
-                        <label for="nombre">Artista</label>
-                        <input value="<%=obraAEditar.artist %>"type="text" name="nombre" class="crear-producto-field" required>
+                        <label for="artista">Artista</label>
+                        <input value="<%=obraAEditar.artist %>"type="text" name="artista" class="crear-producto-field" required>
                     </div>
                     
                     <div class="crear-producto">
@@ -98,7 +98,8 @@
     
                     <div class="crear-producto crear-producto-fotos">
                         <label for="fotos">Imágenes de la obra</label>
-                        <input value="<%=obraAEditar.img %>" type="file" name="fotos" class="crear-producto-field"  required>
+                        <img src="/img/<%=obraAEditar.img %>">
+                        <input  type="file" name="fotos" class="crear-producto-field"  required>
                     </div>
     
                     <div class="crear-producto crear-producto-precio">
@@ -108,7 +109,7 @@
 
                     <div class="crear-producto crear-producto-precio">
                         <label for="descuento">Descuento</label>
-                        <input value="<%=obraAEditar.discount %>"type="number" name="precio" class="crear-producto-field" placeholder=>
+                        <input value="<%=obraAEditar.discount %>"type="number" name="descuento" class="crear-producto-field" placeholder=>
                     </div>
     
     

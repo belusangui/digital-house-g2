@@ -31,7 +31,7 @@ let controller = {
     },
     
     storeProduct: (req, res) => {
-        console.log(req.body);
+        //console.log(req.body);
        let idNuevo=0
       for(let p of productosArchivo){
           if(idNuevo<p.id){
@@ -58,7 +58,7 @@ let controller = {
             img: nombreImagen
         };
 
-
+        console.log(productoNuevo);
         productosArchivo.push(productoNuevo);
 
         //(fs.readFileSync(productsFilePath, 'utf-8'));    Fede cual seria el proposito de esta linea? La comenté porque para mi no va.
@@ -69,12 +69,12 @@ let controller = {
 
     editProduct: (req, res) => {
         
-        let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         let id = req.params.id;
 		let obraId;
 
-		for (let obra of products){
+		for (let obra of productosArchivo){
 			if (id==obra.id){
 				obraId=obra;
 			}
@@ -84,13 +84,13 @@ let controller = {
 
     editStore: (req, res) => {
        
-        let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         let id = req.params.id;
-        
+        console.log("datos",req.body);
 
 
-		for (let obra of products){
+		for (let obra of productosArchivo){
 			if (id==obra.id){
 				obra.name= req.body.nombre;
 				obra.artist= req.body.artista;
@@ -101,7 +101,7 @@ let controller = {
                 obra.discount= req.body.descuento;
                 obra.width= req.body.ancho;
                 obra.height= req.body.alto;
-                obra.other_details= req.body.otros_detalles,
+                obra.other_details= req.body.otros_detalles;
                 obra.year= req.body.year;
                 obra.img= req.file.filename;
 				break;
@@ -109,7 +109,7 @@ let controller = {
 			}
 		}
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
+		fs.writeFileSync(productsFilePath, JSON.stringify(productosArchivo,null,' '));
 
 		res.redirect('/galeria');
     },
