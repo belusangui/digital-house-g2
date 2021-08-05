@@ -51,13 +51,13 @@
   "medium": "Pintura",
   "category": "Abstracto",
   "description": "Incision of cervix",
-  "price": 2553,
-  "discount": 2,
-  "width": 97,
-  "height": 185,
+  "price": "2553",
+  "discount": "0",
+  "width": "97",
+  "height": "185",
   "other_details": "Dennstaedtia cicutaria (Sw.) T. Moore",
-  "year": 1995,
-  "img": "obra-arte24.jpg"
+  "year": "1995",
+  "img": "obra-arte4.jpg"
  },
  {
   "id": 5,

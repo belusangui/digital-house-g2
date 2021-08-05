@@ -31,7 +31,7 @@ let controller = {
     },
     
     storeProduct: (req, res) => {
-        //console.log(req.body);
+
        let idNuevo=0
       for(let p of productosArchivo){
           if(idNuevo<p.id){
@@ -58,18 +58,14 @@ let controller = {
             img: nombreImagen
         };
 
-        console.log(productoNuevo);
         productosArchivo.push(productoNuevo);
 
-        //(fs.readFileSync(productsFilePath, 'utf-8'));    Fede cual seria el proposito de esta linea? La comenté porque para mi no va.
         fs.writeFileSync(productsFilePath, JSON.stringify(productosArchivo, null, ' '));
 
         res.redirect('/galeria')
     },
 
     editProduct: (req, res) => {
-        
-        //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         let id = req.params.id;
 		let obraId;
@@ -83,12 +79,16 @@ let controller = {
     },
 
     editStore: (req, res) => {
-       
-        //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         let id = req.params.id;
-        console.log("datos",req.body);
+    
+        let imagenAnterior;
 
+       for (let obra of productosArchivo){
+			if (id==obra.id){
+                 imagenAnterior = obra.img;
+            }
+       }
 
 		for (let obra of productosArchivo){
 			if (id==obra.id){
@@ -110,6 +110,8 @@ let controller = {
 		}
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(productosArchivo,null,' '));
+
+        fs.unlinkSync(path.join(__dirname, '../../public/img', imagenAnterior));
 
 		res.redirect('/galeria');
     },
