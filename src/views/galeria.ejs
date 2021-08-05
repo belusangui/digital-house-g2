@@ -11,12 +11,27 @@
     </header>
     
     <main>
-        <h2 class="galeria-producto-articulo-encabezado titulares-secundarios">Galería</h2>
-        
-        <section class="galeria">
-             <%- include('partials/caja-social') %>
+        <h2 class="galeria-titulo titulares-secundarios">Galería</h2>
 
-            
+        <section class="galeria-masonry">
+            <% for(product of productos) { %>
+                <div class="contenedor-producto">
+                    <a href="/galeria/detalle_producto/<%=product.id %>" class="galeria-producto">
+                        <div class="galeria-producto-imagen">
+                            <img src="/img/<%=product.img %>" alt="<%=product.name%>">
+                        </div>
+                        <div class="galeria-producto-detalle">
+                            <h2 class="galeria-producto-detalle-price">$<%=product.price %></h2>
+                            <h4 class="galeria-producto-detalle-size"><%=product.size %></h4>
+                            <h3 class="galeria-producto-detalle-name"><%=product.name %></h3>
+                            <h4 class="galeria-producto-detalle-artist"><%=product.artist %></h4>
+                        </div>
+                    </a> 
+                </div>
+             <% } %>
+        </section>
+        
+        <!-- <section class="galeria">   No borrar todavia!
 
             <% for(product of productos) { %>
                 <article class="galeria-producto-articulo">
@@ -32,8 +47,8 @@
                         </div>
                     </a> 
                 </article>
-             <% } %>
-        </section>
+             <% } %> 
+        </section> -->
     </main>  
     
     <footer>

@@ -968,8 +968,33 @@ position: absolute;
 
 /* GALERIA Todos los productos */
 
+.galeria-titulo{
+    width:100%;
+    font-size: 2em;
+    font-weight: 900;
+    color: #9E0051;
+    text-align: left;
+    margin-top:95px;
+    margin-bottom:1.2rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
 
-.galeria{
+.galeria-masonry {
+    max-width: 1280px;
+    width:93vw;
+    margin:auto;
+}
+
+.contenedor-producto {
+    width:100%;
+    padding:1em;
+    break-inside: avoid;
+}
+
+/* .galeria{          esto lo que habia hecho agustin, no borrar por ahora
     max-width: 1280px;
     position: relative;
     background-color: #ffffff;
@@ -984,17 +1009,7 @@ position: absolute;
     margin-right: auto;
     padding-top: 4em;
     text-decoration-line: none;
-}
-
-.galeria-producto-articulo-encabezado{
-    width: 100%;
-    font-size: 2em;
-    font-weight: 900;
-    color: #9E0051;
-    text-align: center;
-    -webkit-font-smoothing: antialiased;
-
-}
+} */
 
 .galeria-producto-articulo{
     margin-top: 1.5em;
@@ -1159,10 +1174,15 @@ position: absolute;
     .categoria-contenedor-imagen img{
         border: white 0.9em solid;
     }
-    .galeria{
+
+    .galeria-masonry {
+        column-count: 2;
+    }
+
+    /* .galeria{  lo de agustin no borrar por ahora
         grid-template-columns: auto auto;
         gap: 20px;
-    }
+    } */
 
     .galeria-producto-articulo{
         margin-top: 2em;
@@ -1354,10 +1374,14 @@ position: absolute;
      display: none;
      }
    
-    .galeria{
+    /* .galeria{    agustin no borrar por ahora
         grid-template-columns: auto auto auto;
         gap: 30px;
-        }
+        } */
+    
+    .galeria-masonry {
+        column-count: 3;
+     }
     
     /*detalle producto*/
 
@@ -1382,8 +1406,8 @@ position: absolute;
         margin: auto;
     }
 
-    .galeria{
-        grid-template-columns: auto auto auto auto;
-        gap: 30px;
-        }
+    .galeria-masonry {
+        column-count: 4;
+     }
+     
 }
