@@ -16,7 +16,7 @@ router.get('/ingresar', usersController.login);
 
 router.get('/crear_cuenta', usersController.register);
 
-router.post('/crear_cuenta', validateRegister, usersController.store);
+router.post('/crear_cuenta', validateRegister, usersController.processRegister);
 
 router.get('/mi_perfil/:id', usersController.perfilUsuario); //renderiza perfil de usuario con identificador
 
