@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {body} = require('express-validator');
+const uploadFile =  require('../middlewares/multerUsers');
 
 const usersController = require('../controllers/usersController');
 
@@ -16,7 +17,7 @@ router.get('/ingresar', usersController.login);
 
 router.get('/crear_cuenta', usersController.register);
 
-router.post('/crear_cuenta', validateRegister, usersController.processRegister);
+router.post('/crear_cuenta', uploadFile.single('avatar'),validateRegister, usersController.processRegister);
 
 router.get('/mi_perfil/:id', usersController.perfilUsuario); //renderiza perfil de usuario con identificador
 

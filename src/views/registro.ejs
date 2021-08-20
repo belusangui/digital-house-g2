@@ -15,7 +15,7 @@
         <section class="registro-ppal">
             <h2 class="titulares-secundarios">Completá tus datos.</h2>
           
-                <form action="/user/crear_cuenta" id="register-form" method="POST">
+                <form action="/user/crear_cuenta" id="register-form" method="POST"  enctype="multipart/form-data">
                 <div class="form-section">
                     <input type="text" name="nombre" class="login-field <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" placeholder="Nombre y Apellido" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
                     <% if (locals.errors && errors.nombre) { %>
@@ -46,6 +46,12 @@
                         <p class="error-message"><%=errors.password2.msg%></p>
                     <% } %>
                 </div>
+                <div class="form-section">
+                    <label for="avatar">Foto de perfil</label>
+                    <input type="file" name="avatar" class="login-field" >
+                   
+                </div>
+                
                 <div class="form-section">
                     <input type="submit" id="boton-crear-cuenta" value="Crear cuenta">
                 </div>

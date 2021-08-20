@@ -270,5 +270,13 @@
   "email": "agus@hotmail.com",
   "password": "graciasbelucapa",
   "img": null
+ },
+ {
+  "id": 35,
+  "user_name": "ljlkjlkjlkj",
+  "full_name": "noe",
+  "email": "agus1@hotmail.com",
+  "password": "$2a$10$bS.bPHJyTnWElaGDNneFUORqCMHgo7TUTwDTU1kTJVeXs4Ozvb9eu",
+  "img": "1629501626179.jpg"
  }
 ]
