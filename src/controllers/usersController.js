@@ -20,7 +20,7 @@ let controller = {
         let errors = validationResult(req);
 
          if (errors.isEmpty()) {
-             
+
             let idNuevo = user.generateId();
 
             let userToCreate = {
@@ -34,7 +34,7 @@ let controller = {
 
             user.create(userToCreate);
                 
-                res.redirect('/');
+            res.redirect('/');
 
             } else {
                 let user= req.body;
