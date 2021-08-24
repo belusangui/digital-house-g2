@@ -11,7 +11,28 @@ let controller = {
         res.render('login');
     },
     processLogin: (req, res) => {
-        console.log("process login")   //desarrollar
+       let userFound = user.findByField('email', req.body.email);
+       if(userFound){
+           let accesoPermitido= bcryptjs.compareSync(req.body.password, userFound.password)
+           if(accesoPermitido){
+               delete userFound.password
+               req.session.userLogged = userFound
+               res.render('index')
+           }else{
+               res.render('login', {errors: {
+                   email:{
+                       msg: 'Las credenciales son invalidas'
+                   }
+               }});
+           }
+           
+       }else{
+           res.render('login', {errors: {
+               email:{
+                   msg: 'No se encuentra este email'
+               }
+           }});
+       }
     },
     register: (req, res)=>{
         res.render('registro');

@@ -15,6 +15,8 @@ const validateRegister = [
 
 router.get('/ingresar', usersController.login);
 
+router.post('/ingresar', usersController.processLogin);
+
 router.get('/crear_cuenta', usersController.register);
 
 router.post('/crear_cuenta', uploadFile.single('avatar'),validateRegister, usersController.processRegister);
