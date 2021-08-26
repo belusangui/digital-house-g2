@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 const productosController = require('../controllers/productosController');
 
@@ -24,11 +25,11 @@ router.get ('/', productosController.galeria);
 
 router.get ('/detalle_producto/:id', productosController.detail);
 
-router.get ('/crear_producto', productosController.createProduct);
+router.get ('/crear_producto', authMiddleware, productosController.createProduct);
 
 router.post ('/crear_producto', uploadFile.single('fotos'), productosController.storeProduct);
 
-router.get ('/editar_producto/:id', productosController.editProduct);
+router.get ('/editar_producto/:id', authMiddleware, productosController.editProduct);
 
 router.put ('/editar_producto/:id', uploadFile.single('fotos'),productosController.editStore);
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
+const cookieParser = require('cookie-parser')
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.use(session({secret: 'Clave secreta',
   saveUninitialized: false
 }));
 
+app.use(cookieParser());
+
 app.use(userLoggedMiddleware);
 
 const methodOverride = require('method-override');
@@ -35,6 +38,7 @@ const rutasMain = require('./src/routes/main');
 const rutasProductos = require('./src/routes/productos');
 const rutasUsuarios = require('./src/routes/usuarios');
 const rutasCarrito = require('./src/routes/carrito');
+
 
 app.use('/', rutasMain);
 

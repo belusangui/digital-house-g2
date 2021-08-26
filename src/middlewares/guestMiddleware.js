@@ -1,7 +1,8 @@
 function guestMiddleware(req, res, next){
+    
     if(req.session.userLogged){
-        return res.redirect('/user/mi_perfil/:id');
-        //return res.redirect('/');
+        let userId = req.session.userLogged.id 
+        return res.redirect('/user/mi_perfil/'+ userId );
     }
     next();
 }

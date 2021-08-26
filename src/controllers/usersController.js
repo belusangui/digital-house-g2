@@ -17,6 +17,11 @@ let controller = {
            if(accesoPermitido){
                delete userFound.password
                req.session.userLogged = userFound
+
+               if(req.body.remember-user) {
+                res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                }
+                
                res.redirect('/')
            }else{
                res.render('login', {errors: {
