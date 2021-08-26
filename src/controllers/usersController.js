@@ -17,10 +17,10 @@ let controller = {
            if(accesoPermitido){
                delete userFound.password
                req.session.userLogged = userFound
-               res.render('index')
+               res.redirect('/')
            }else{
                res.render('login', {errors: {
-                   email:{
+                   password:{
                        msg: 'Las credenciales son invalidas'
                    }
                }});

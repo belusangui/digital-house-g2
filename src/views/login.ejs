@@ -20,10 +20,16 @@
                 <p class="parrafos">─ o ─</p>
                 <form action="/user/ingresar" id="login-form" method="POST">
                     <div class="form-section">
-                        <input type="email" name="email" class="login-field" placeholder="Email">
+                        <input type="email" name="email" class="login-field <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="Email">
                     </div>
                     <div class="form-section">
-                        <input type="password" name="password" class="login-field" placeholder="Contraseña">
+                        <input type="password" name="password" class="login-field <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="Contraseña">
+                        <% if (locals.errors && errors.email) { %>
+                            <p class="error-message"><%=errors.email.msg%></p>
+                        <% } %>
+                        <% if (locals.errors && errors.password) { %>
+                            <p class="error-message"><%=errors.password.msg%></p>
+                        <% } %>
                     </div>
                     <div class="form-section">
                         <a href="./index"><button type="submit" id="boton-acceder">Acceder</button></a>

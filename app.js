@@ -4,10 +4,8 @@ const session = require('express-session');
 
 const app = express();
 
-const rutasMain = require('./src/routes/main');
-const rutasProductos = require('./src/routes/productos');
-const rutasUsuarios = require('./src/routes/usuarios');
-const rutasCarrito = require('./src/routes/carrito');
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
@@ -23,11 +21,20 @@ app.use(session({secret: 'Clave secreta',
   saveUninitialized: false
 }));
 
-
+app.use(userLoggedMiddleware);
 
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
+
+app.listen(process.env.PORT || 3000, () => {
+console.log("Servidor corriendo");
+});
+
+const rutasMain = require('./src/routes/main');
+const rutasProductos = require('./src/routes/productos');
+const rutasUsuarios = require('./src/routes/usuarios');
+const rutasCarrito = require('./src/routes/carrito');
 
 app.use('/', rutasMain);
 
@@ -35,10 +42,4 @@ app.use('/galeria', rutasProductos);
 
 app.use('/carrito', rutasCarrito);
 
-app.use('/user', rutasUsuarios);  
-
-
-
-app.listen(process.env.PORT || 3000, () => {
-console.log("Servidor corriendo");
-});
+app.use('/user', rutasUsuarios); 

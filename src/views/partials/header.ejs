@@ -13,7 +13,12 @@
                         <li class="shop-online"><a href="/galeria">Obras</a></li>
                         <li class="about"><a href="/galeria">Artistas</a></li>
                         <li class="contact"><a href="/contact">Contacto</a></li>
+
+                        <% if(locals.usuarioLogueado){ %>
+                            <li><a href="/user/mi_perfil/<%= locals.usuarioLogueado.id %>"><i class="fas fa-user" id="carroHeader"></i></a></li>
+                            <% }else{ %>
                         <li class="login"><a href="/user/ingresar">Ingresá</a></li>
+                             <% } %>
                 </ul>
             </nav>
 
