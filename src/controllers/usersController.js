@@ -98,6 +98,11 @@ let controller = {
     editStore: (req, res) => {
         console.log("Logica Editar usuario, no es necesaria para sprint 4")
     },
+
+    logout: (req, res) => {
+        req.session.destroy();
+        return res.redirect('/');
+    }
     
 }
 

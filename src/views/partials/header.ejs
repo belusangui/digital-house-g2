@@ -15,7 +15,8 @@
                         <li class="contact"><a href="/contact">Contacto</a></li>
 
                         <% if(locals.usuarioLogueado){ %>
-                            <li><a href="/user/mi_perfil/<%= locals.usuarioLogueado.id %>"><i class="fas fa-user" id="carroHeader"></i></a></li>
+                            <li><a href="/user/mi_perfil/<%= locals.usuarioLogueado.id %>"><i class="fas fa-user" id="carroHeader"></i></a><a> </li>
+                            <li><a href="/user/logout"><p>Log out</p></a></li>
                             <% }else{ %>
                         <li class="login"><a href="/user/ingresar">Ingresá</a></li>
                              <% } %>
