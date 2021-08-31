@@ -12,50 +12,52 @@
     </header>
 
     <main>
-        <section class="registro-ppal">
-            <h2 class="titulares-secundarios">Completá tus datos.</h2>
-          
-                <form action="/user/crear_cuenta" id="register-form" method="POST"  enctype="multipart/form-data">
-                <div class="form-section">
-                    <input type="text" name="nombre" class="login-field <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" placeholder="Nombre y Apellido" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
-                    <% if (locals.errors && errors.nombre) { %>
-                        <p class="error-message"><%=errors.nombre.msg%></p>
-                    <% } %>
-                </div>
-                <div class="form-section">
-                    <input type="text" name="usuario" class="login-field <%= locals.errors && errors.usuario ? 'is-invalid' : null %>" placeholder="Nombre de Usuario" value="<%= locals.old && old.usuario ? old.usuario : '' %>">
-                    <% if (locals.errors && errors.usuario) { %>
-                        <p class="error-message"><%=errors.usuario.msg%></p>
-                    <% } %>
-                </div>
-                <div class="form-section">
-                    <input type="email" name="email" class="login-field <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="Email" value="<%= locals.old && old.email ? old.email : '' %>">
-                    <% if (locals.errors && errors.email) { %>
-                        <p class="error-message"><%=errors.email.msg%></p>
-                    <% } %>
-                </div>
-                <div class="form-section">
-                    <input type="password" name="password" class="login-field <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="Contraseña">
-                    <% if (locals.errors && errors.password) { %>
-                        <p class="error-message"><%=errors.password.msg%></p>
-                    <% } %>
-                </div>
-                <div class="form-section">
-                    <input type="password" name="password2" class="login-field <%= locals.errors && errors.password2 ? 'is-invalid' : null %>" placeholder="Confirmar contraseña">
-                    <% if (locals.errors && errors.password2) { %>
-                        <p class="error-message"><%=errors.password2.msg%></p>
-                    <% } %>
-                </div>
-                <div class="form-section">
-                    <label for="avatar">Foto de perfil</label>
-                    <input type="file" name="avatar" class="login-field" >
-                   
-                </div>
-                
-                <div class="form-section">
-                    <input type="submit" id="boton-crear-cuenta" value="Crear cuenta">
-                </div>
-            </form>
+        <section class="contenedor-registro">
+            <div class="registro-ppal">
+                <h2 class="titulares-secundarios">Completá tus datos.</h2>
+            
+                    <form action="/user/crear_cuenta" id="register-form" method="POST"  enctype="multipart/form-data">
+                    <div class="form-section">
+                        <input type="text" name="nombre" class="login-field <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" placeholder="Nombre y Apellido" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
+                        <% if (locals.errors && errors.nombre) { %>
+                            <p class="error-message"><%=errors.nombre.msg%></p>
+                        <% } %>
+                    </div>
+                    <div class="form-section">
+                        <input type="text" name="usuario" class="login-field <%= locals.errors && errors.usuario ? 'is-invalid' : null %>" placeholder="Nombre de Usuario" value="<%= locals.old && old.usuario ? old.usuario : '' %>">
+                        <% if (locals.errors && errors.usuario) { %>
+                            <p class="error-message"><%=errors.usuario.msg%></p>
+                        <% } %>
+                    </div>
+                    <div class="form-section">
+                        <input type="email" name="email" class="login-field <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="Email" value="<%= locals.old && old.email ? old.email : '' %>">
+                        <% if (locals.errors && errors.email) { %>
+                            <p class="error-message"><%=errors.email.msg%></p>
+                        <% } %>
+                    </div>
+                    <div class="form-section">
+                        <input type="password" name="password" class="login-field <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="Contraseña">
+                        <% if (locals.errors && errors.password) { %>
+                            <p class="error-message"><%=errors.password.msg%></p>
+                        <% } %>
+                    </div>
+                    <div class="form-section">
+                        <input type="password" name="password2" class="login-field <%= locals.errors && errors.password2 ? 'is-invalid' : null %>" placeholder="Confirmar contraseña">
+                        <% if (locals.errors && errors.password2) { %>
+                            <p class="error-message"><%=errors.password2.msg%></p>
+                        <% } %>
+                    </div>
+                    <div class="form-section">
+                        <label for="avatar">Foto de perfil</label>
+                        <input type="file" name="avatar" class="login-field" >
+                    
+                    </div>
+                    
+                    <div class="form-section">
+                        <input type="submit" id="boton-crear-cuenta" value="Crear cuenta">
+                    </div>
+                </form>
+            </div>
         </section>
 
         <%- include('partials/caja-social') %>

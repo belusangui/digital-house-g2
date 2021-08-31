@@ -1,11 +1,11 @@
     <section id="barra-navegacion">
 
         <div id="nav-mobile" class="nav-left-section"> 
-            <p id="menuHamburguesa"><i class="fas fa-bars"></i></p>
+            <i class="fas fa-bars" id="menuHamburguesa"></i>
             <button type="submit" id="botonBusqueda"><i class="fas fa-search"></i></button>
         </div>
 
-        <a href="/" id="logo"><img id="logo-img" src="/img/logo-art.png" ></a>
+        <a href="/" id="logo"><img id="logo-img" src="/img/logo-prueba.png" ></a>
 
         <div class="nav-right-section">
             <nav id="nav-desktop">
@@ -18,7 +18,7 @@
                             <li><a href="/user/mi_perfil/<%= locals.usuarioLogueado.id %>"><i class="fas fa-user" id="carroHeader"></i></a><a> </li>
                             <li><a href="/user/logout"><p>Log out</p></a></li>
                             <% }else{ %>
-                        <li class="login"><a href="/user/ingresar">Ingresá</a></li>
+                        <li class="login"><a href="/user/ingresar" id="botonIngresar">Ingresá</a></li>
                              <% } %>
                 </ul>
             </nav>

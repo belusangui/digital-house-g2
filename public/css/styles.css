@@ -8,6 +8,7 @@ Rosa viejo ##9b5d64
 Bordeaux ##6d0e0d
 Naranja #B84C24
 Negro-azulado: tipografia #212125
+Marron claro logo: #CD9983
 */
  
 * {
@@ -68,10 +69,9 @@ Negro-azulado: tipografia #212125
     width: 100vw;
     margin: auto;
     text-align: center;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding: 0.4em 1em;
     flex-wrap: nowrap;
-    background-color: rgba(245,245,257,0.3);
+    background-color: rgba(33,33,37,1);
     position: fixed;
     z-index: 10;
     top: 0;
@@ -95,6 +95,7 @@ Negro-azulado: tipografia #212125
     align-items: center;
     display: flex;
     width: 20%;
+    color: #F5F5F7;
     justify-content: left;
     margin-left:1em;
     -webkit-font-smoothing: antialiased;
@@ -106,7 +107,7 @@ Negro-azulado: tipografia #212125
 }
 
 #nav-desktop {
-    width: 60%;
+    width: 70%;
     display:none;
     -webkit-font-smoothing: antialiased;
 }
@@ -135,30 +136,49 @@ Negro-azulado: tipografia #212125
 list-style-type: none;
 display: flex;
 justify-content: space-evenly;
+margin-bottom: 0px;
 }
 
 ul#menu li a{
     text-decoration: none;
-    color: #212125;
+    color: white;
+    font-size: 1.1em;
+    letter-spacing: 0.2px;
+    font-weight: 500;
 }
 
-ul#menu li:hover{
-    text-decoration: underline 1px solid black;
+ul#menu li :hover{
+    text-decoration: underline 1.2px solid #F5F5F7;
     cursor: pointer;
 }
+
+/* ul#menu li #botonIngresar {
+    background-color: #9b5d64;
+    border-radius: 3px;
+    color: #F5F5F7;
+    padding: 7px 10px;
+    border: 0px;
+    text-align: center;
+    width: 100%;
+} */
 
 #carroHeader{
     border: none;
     width: 16px;
     height: 15px;
+    color: #F5F5F7;
     align-self: center;
     padding: 0;
     background-color: transparent;
 }
 
 #carroHeader:hover{
-    color: #9E0051;
+    color: #CD9983;
     cursor: pointer;
+}
+
+#menuHamburguesa {
+    color: #F5F5F7;
 }
 
 /*Fin del codigo del Header*/
@@ -254,7 +274,7 @@ main {
 /*Carrouseles Index */
 
 #carousel-main {
-    margin-top:68px;
+    margin-top:65px;
 }
 
 .imagen-carrousel {
@@ -579,6 +599,11 @@ position: relative;
     background-color:#F5F5F7 ;
     padding-bottom: 8em;
   }
+
+.contenedor-registro {
+     width: 100%;
+     background-color: #F5F5F7;
+ } 
   
 .registro-ppal {
   margin: auto;
