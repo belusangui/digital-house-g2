@@ -278,5 +278,13 @@
   "email": "agus1@hotmail.com",
   "password": "$2a$10$bS.bPHJyTnWElaGDNneFUORqCMHgo7TUTwDTU1kTJVeXs4Ozvb9eu",
   "img": "1629501626179.jpg"
+ },
+ {
+  "id": 36,
+  "user_name": "ljlkjlkjlkj",
+  "full_name": "Grupo 2",
+  "email": "hola@gmail.com",
+  "password": "$2a$10$8YQYRhb7cWxUUj4fX.QKNugdJ/5pCsGPpIHdqT3OAKuWqmz24O6PK",
+  "img": "1630372750388.jpg"
  }
 ]

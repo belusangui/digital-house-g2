@@ -16,11 +16,17 @@ let controller = {
            let accesoPermitido= bcryptjs.compareSync(req.body.password, userFound.password)
            if(accesoPermitido){
                delete userFound.password
-               req.session.userLogged = userFound
+               req.session.userLogged = userFound;
 
-               if(req.body.remember-user) {
+            //    if(req.body.remember-user != undefined){
+            //        res.cookie('recordame',userFound.email,{maxAge: 60000})
+            //    }
+            
+               if(req.body.remember-user != undefined) {
                 res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
                 }
+
+                
                 
                res.redirect('/')
            }else{
