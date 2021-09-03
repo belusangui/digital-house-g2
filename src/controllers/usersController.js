@@ -85,15 +85,10 @@ let controller = {
         },
 
     perfilUsuario: (req, res) => {
-        let idUser = req.params.id;
-        let usuarioEncontrado;
-        for (i=0; i<users.length; i++) {
-            if(users[i].id == idUser) {
-                usuarioEncontrado = users[i];
-            }
-        }
-        
-        res.render('perfil_usuario', {usuario: usuarioEncontrado});
+
+        return res.render('perfil_usuario', {
+			user: req.session.userLogged
+		});
     },
 
     edit: (req, res) => {

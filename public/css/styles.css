@@ -1017,7 +1017,8 @@ position: absolute;
 
 
 .perfil-usuario-caja {
-    margin-top: 66px;
+    width:80%;
+    margin: 100px 5em auto auto;
     padding-bottom: 2em;
 }
 
