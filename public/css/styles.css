@@ -142,13 +142,15 @@ margin-bottom: 0px;
 ul#menu li a{
     text-decoration: none;
     color: white;
+    padding: 6px 4px;
     font-size: 1.1em;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.4px;
     font-weight: 500;
+    transition: border-bottom 30ms;
 }
 
 ul#menu li :hover{
-    text-decoration: underline 1.2px solid #F5F5F7;
+    border-bottom: 1.5px solid #dcdde5;
     cursor: pointer;
 }
 
@@ -168,12 +170,17 @@ ul#menu li :hover{
     height: 15px;
     color: #F5F5F7;
     align-self: center;
-    padding: 0;
     background-color: transparent;
+    
 }
 
-#carroHeader:hover{
-    color: #CD9983;
+#nav-carrito {
+    padding-bottom: 6px;
+    transition: border-bottom 30ms;
+}
+
+#nav-carrito:hover{
+    border-bottom: 1.5px solid #dcdde5;
     cursor: pointer;
 }
 
@@ -1275,7 +1282,7 @@ position: absolute;
     }
 
     #nav-carrito {
-        width:10%;
+        width:5%;
     }
 
     .nav-right-section {
