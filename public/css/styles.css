@@ -224,6 +224,7 @@ transition: color 45ms;
 #footer{
     background-color: #212125;
     width: 100%;
+    margin-bottom: 0px;
 }
 
 #redirects{
@@ -233,6 +234,8 @@ transition: color 45ms;
     align-items: center;
     height: 200px;
     justify-content: space-evenly;
+    margin-bottom: 0px;
+    padding-left: 0px;
 }
 
 .textos-footer{
@@ -267,6 +270,12 @@ transition: color 45ms;
 
 #logo-categorias-footer{
     color: white;
+}
+
+#logo-footer-img{
+    margin-left: 35%;
+    width: 30%;
+    margin-top: -60px;
 }
 
 /*Fin del codigo del Footer*/
