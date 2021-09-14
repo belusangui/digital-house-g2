@@ -39,13 +39,13 @@ function galeriaData(sequelize, Datatypes){
             foreignKey: "id_medioFk"
         });
 
-        Producto.belongsToMany(models.OrdenCompra, {
-            as: "obras_ordenes",
-            through: "Orden_Compra_Producto",   
-            foreignKey: "id_productoFk",
-            otherKey: "id_orden_compraFk",
-            timestamps: false
-        });
+        // Producto.belongsToMany(models.OrdenCompra, {
+        //     as: "obras_ordenes",
+        //     through: "Orden_Compra_Producto",   
+        //     foreignKey: "id_productoFk",
+        //     otherKey: "id_orden_compraFk",
+        //     timestamps: false
+        // });
 
   
       }
