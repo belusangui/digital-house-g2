@@ -24,7 +24,7 @@ function galeriaData(sequelize, Datatypes){
       Artista.associate = function(models) {
   
         Artista.hasMany(models.Producto, {
-              as: "obras_artista", 
+              as: "artistas", 
               foreignKey: "id_artistaFk"
         });
   

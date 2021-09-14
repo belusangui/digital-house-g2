@@ -11,35 +11,44 @@ let controller = {
 
     galeria: (req, res)=>{
         
-        let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        res.render('galeria', {productos: products})
-    },
-    detail: (req, res)=>{
-       
-        let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        
-        let idObra = req.params.id;
-        let productoEncontrado = {};
+        db.Producto.findAll({include: [ {association: 'artistas'}]})
+        .then(function(dataproducts){
+            res.render('galeria', {productos: dataproducts})
+        });
 
-        for (let product of products) {
-            if(product.id == idObra){
-                productoEncontrado = product;
-            }
-        }
-        res.render('detalle_producto', {product : productoEncontrado});
     },
+
+    detail: (req, res)=>{
+
+        let idObra = req.params.id;
+        db.Producto.findByPk(idObra, {include: [{association: 'artistas'},{association: 'medios'}]})
+        .then(function(productoEncontrado) {
+            res.render('detalle_producto', {producto : productoEncontrado})
+        })
+
+    },
+
     createProduct: (req, res) => {
-        // db.Categoria.findAll()
-        // .then(function (categorias) {
-        //     return res.render('crear_producto', {categorias: categorias } )
-        // });
-        res.render('crear_producto');
+        let allCategorias = db.Categoria.findAll()
+            .then(function (categorias) {
+                return categorias
+        });
+        let allMedios = db.Medio.findAll()
+            .then(function (medios) {
+            return medios
+        });
+
+        Promise.all([allCategorias, allMedios])
+            .then(function([dataCategorias, dataMedios]){
+                res.render('crear_producto',{categorias: dataCategorias, medios: dataMedios });
+            })
+        
     },
     
     storeProduct: (req, res) => {
 
-       let idNuevo=0
-      for(let p of productosArchivo){
+        let idNuevo=0
+        for(let p of productosArchivo){
           if(idNuevo<p.id){
               idNuevo=p.id
           }

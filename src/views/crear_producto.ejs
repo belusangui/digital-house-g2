@@ -36,10 +36,9 @@
                 <div class="crear-producto">
                     <label for="medio">Medio</label>
                     <select name="medio" class="crear-producto-field"  required>
-                        <% let medios = ['Pintura', 'Escultura','Fotografía','Dibujo', 'Textil', 'Collage']%>
                             <% for(let unMedio of medios) { %>
-                                <option value = "<%= unMedio %>">
-                                    <%= unMedio %>
+                                <option value = "<%= unMedio.nombre %>">
+                                    <%= unMedio.nombre %>
                                 </option>
                         <% } %>
                     </select>
@@ -48,10 +47,9 @@
                 <div class="crear-producto">
                     <label for="tema">Temática</label>
                     <select name="tema" class="crear-producto-field"  required>
-                        <!-- <% let categorias = ['Street art', 'Autoretrato','Retrato', 'Urbano', 'Paisajes', 'Naturaleza', 'Desnudo', 'Abstracto', 'Pop Art']%> -->
                         <% for(let unaCategoria of categorias) { %>
-                            <option value = "<%= unaCategoria %>">
-                            <%= unaCategoria %>
+                            <option value = "<%= unaCategoria.nombre %>">
+                            <%= unaCategoria.nombre %>
                             </option>
                         <% } %>
                     </select>

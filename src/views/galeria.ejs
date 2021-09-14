@@ -18,14 +18,14 @@
                 <div class="contenedor-producto">
                     <a href="/galeria/detalle_producto/<%=product.id %>" class="galeria-producto">
                         <div class="galeria-producto-imagen">
-                            <img src="/img/<%=product.img %>" alt="<%=product.name%>">
+                            <img src="/img/<%=product.img %>" alt="<%=product.nombre%>">
                             <div class="imagen-mask"></div>
                         </div>
                         <div class="galeria-producto-detalle">
-                            <h2 class="galeria-producto-detalle-price">$<%=product.price %></h2>
-                            <h4 class="galeria-producto-detalle-size"><%=product.size %></h4>
-                            <h3 class="galeria-producto-detalle-name"><%=product.name %></h3>
-                            <h4 class="galeria-producto-detalle-artist"><%=product.artist %></h4>
+                            <h2 class="galeria-producto-detalle-price">$<%=product.precio %></h2>
+                            <h4 class="galeria-producto-detalle-size"><%=product.alto%> x <%=product.ancho%></h4>
+                            <h3 class="galeria-producto-detalle-name"><%=product.nombre %></h3>
+                            <h4 class="galeria-producto-detalle-artist"><%=product.artistas.nombre_completo %></h4>
                         </div>
                     </a>
                 </div>

@@ -25,17 +25,17 @@ function galeriaData(sequelize, Datatypes){
       Producto.associate = function(models) {
   
         Producto.belongsTo(models.Artista, {
-              as: "obras_artista", 
+              as: "artistas", 
               foreignKey: "id_artistaFk"
         });
 
         Producto.belongsTo(models.Categoria, {
-            as: "obras_categoria",
+            as: "categorias",
             foreignKey: "id_categoriaFk"
         });
 
         Producto.belongsTo(models.Medio, {
-            as: "obras_medio",
+            as: "medios",
             foreignKey: "id_medioFk"
         });
 

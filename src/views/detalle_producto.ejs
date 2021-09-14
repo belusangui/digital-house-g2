@@ -23,15 +23,15 @@
         <section class="producto">
             <div class="producto-imagen">
                 <div class="producto-imagen-principal">
-                    <img src="/img/<%=product.img%>" alt="<%=product.name%>">
+                    <img src="/img/<%=producto.img%>" alt="<%=producto.nombre%>">
                 </div>
                 <div class="producto-imagenes-miniaturas">
 
                 </div>
             </div>
             <div class="producto-info-detalle-1">
-                <h1><%=product.name%></h1>
-                <h2><%=product.artist%></h2>
+                <h1><%=producto.nombre%></h1>
+                <h2><%=producto.artistas.nombre_completo%></h2>
             </div>
             <div class="producto-info-detalle-2">
                     <ul class="producto-info-detalle-list">
@@ -40,7 +40,7 @@
                                 <h3>Técnica</h3>
                             </div>
                             <div class="info">
-                                <p><%=product.medium%></p>
+                                <p><%=producto.medios.nombre%></p>
                             </div>
                         </li>
                         <li>
@@ -48,7 +48,7 @@
                                 <h3>Otros detalles</h3>
                             </div>
                             <div class="info">
-                                <p><%=product.other_details%></p>
+                                <p><%=producto.otros_detalles%></p>
                             </div>
                         </li>
                         <li>
@@ -56,19 +56,19 @@
                                 <h3>Dimensiones</h3>
                             </div>
                             <div class="info">
-                                <p><%=product.width%>x<%=product.height%>cm</p>
+                                <p><%=producto.ancho%>x<%=producto.alto%>cm</p>
                             </div>
                         </li>
                     </ul>
             </div>
             <div class="producto-info-detalle-3">
                 <h3>Sobre la obra</h3>
-                <p><%=product.description%></p>
-                <p>Año de creación: <%=product.year%></p>
+                <p><%=producto.descripcion%></p>
+                <p>Año de creación: <%=producto.anio_creacion%></p>
             </div>
             <div class="producto-compra">
                 <div class="producto-compra-precio">
-                    <h1>$<%=product.price%></h1>
+                    <h1>$<%=producto.precio%></h1>
                 </div>
                 <div>
                     <h4>Envío y devolución gratis.</h4>
