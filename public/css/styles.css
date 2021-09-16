@@ -104,6 +104,7 @@ Marron claro logo: #CD9983
 #nav-carrito {
     width:20%;
     -webkit-font-smoothing: antialiased;
+    align-self: center;
 }
 
 #nav-desktop {
@@ -137,6 +138,7 @@ list-style-type: none;
 display: flex;
 justify-content: space-evenly;
 margin-bottom: 0px;
+align-items: center;
 }
 
 ul#menu li a{
@@ -150,19 +152,9 @@ ul#menu li a{
 }
 
 ul#menu li :hover{
-    border-bottom: 1.5px solid #dcdde5;
     cursor: pointer;
 }
 
-/* ul#menu li #botonIngresar {
-    background-color: #9b5d64;
-    border-radius: 3px;
-    color: #F5F5F7;
-    padding: 7px 10px;
-    border: 0px;
-    text-align: center;
-    width: 100%;
-} */
 
 #carroHeader{
     border: none;
@@ -175,17 +167,23 @@ ul#menu li :hover{
 }
 
 #nav-carrito {
-    padding-bottom: 6px;
-    transition: border-bottom 30ms;
+    align-self: center;
 }
 
 #nav-carrito:hover{
-    border-bottom: 1.5px solid #dcdde5;
     cursor: pointer;
 }
 
 #menuHamburguesa {
     color: #F5F5F7;
+}
+
+.login{
+    padding: 3px;
+}
+
+.login:hover{
+    background-color: rgba(33,33,37,1);
 }
 
 /*Fin del codigo del Header*/
@@ -817,6 +815,7 @@ position: absolute;
 
 .crear-producto-dimensiones-obejeto{
     width: 25%;
+    margin-right: 10px;
 }
 
 .section-crear-producto textarea {
@@ -1309,7 +1308,7 @@ position: absolute;
     }
 
     .nav-right-section {
-        width: 50%;
+        width: 70%;
     }
 
     /*carrousel*/

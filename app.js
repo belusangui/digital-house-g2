@@ -38,6 +38,7 @@ const rutasMain = require('./src/routes/main');
 const rutasProductos = require('./src/routes/productos');
 const rutasUsuarios = require('./src/routes/usuarios');
 const rutasCarrito = require('./src/routes/carrito');
+const rutasArtista = require('./src/routes/artistas')
 
 
 app.use('/', rutasMain);
@@ -47,3 +48,5 @@ app.use('/galeria', rutasProductos);
 app.use('/carrito', rutasCarrito);
 
 app.use('/user', rutasUsuarios); 
+
+app.use('/artist', rutasArtista)

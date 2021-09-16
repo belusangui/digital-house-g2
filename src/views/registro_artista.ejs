@@ -16,11 +16,17 @@
             <div class="registro-ppal">
                 <h2 class="titulares-secundarios">Completá tus datos.</h2>
             
-                    <form action="/user/crear_cuenta" id="register-form" method="POST"  enctype="multipart/form-data">
+                    <form action="/artist/crear_artista" id="register-form" method="POST"  enctype="multipart/form-data">
                     <div class="form-section">
                         <input type="text" name="nombre" class="login-field <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" placeholder="Nombre y Apellido" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
                         <% if (locals.errors && errors.nombre) { %>
                             <p class="error-message"><%=errors.nombre.msg%></p>
+                        <% } %>
+                    </div>
+                    <div class="form-section">
+                        <input type="text" name="username" class="login-field <%= locals.errors && errors.username ? 'is-invalid' : null %>" placeholder="Nombre de Usuario" value="<%= locals.old && old.username ? old.username : '' %>">
+                        <% if (locals.errors && errors.username) { %>
+                            <p class="error-message"><%=errors.username.msg%></p>
                         <% } %>
                     </div>
                     <div class="form-section">
@@ -73,5 +79,7 @@
     <footer>
         <%- include('partials/footer') %>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

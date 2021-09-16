@@ -13,13 +13,28 @@
                         <li class="shop-online"><a href="/galeria">Obras</a></li>
                         <li class="about"><a href="/galeria">Artistas</a></li>
                         <li class="contact"><a href="/contact">Contacto</a></li>
-
-                        <% if(locals.usuarioLogueado){ %>
-                            <li><a href="/user/mi_perfil/<%= locals.usuarioLogueado.id %>"><i class="fas fa-user" id="carroHeader"></i></a><a> </li>
-                            <li class="logout"><a href="/user/logout">Log Out</a></li>
-                            <% }else{ %>
-                        <li class="login"><a href="/user/ingresar" id="botonIngresar">Ingresá</a></li>
-                             <% } %>
+                        <li class="nav-item dropdown" id="dropdown-header">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             <% if(locals.usuarioLogueado){ %>
+                                     <% if(locals.usuarioLogueado.username){ %>
+                                        <%= locals.usuarioLogueado.username %>
+                                        <% }else{ %>
+                                     <%= locals.usuarioLogueado.nombre_completo %>
+                                         <% } %>
+                                <% }else{ %>
+                                   Ingresar
+                                   <% } %>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <% if(locals.usuarioLogueado){ %>
+                                    <li class="login"><a href="/user/mi_perfil/<%= locals.usuarioLogueado.id %>">Mi Perfil</i></a></li>
+                                    <li class="login"><a href="/user/logout">Log Out</a></li>
+                                    <% }else{ %>
+                                <li class="login"><a href="/user/ingresar" id="botonIngresar">Comprador</a></li>
+                                <li class="login"><a href="/artist/ingresar" id="botonIngresar">Artista</a></li>
+                                     <% } %>
+                            </ul>
+                          </li>
                 </ul>
             </nav>
 
