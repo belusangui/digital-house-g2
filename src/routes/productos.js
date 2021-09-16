@@ -4,6 +4,7 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const authMiddleware = require('../middlewares/authMiddleware');
+const artistMiddleware = require('../middlewares/artistMiddleware');
 
 const productosController = require('../controllers/productosController');
 
@@ -25,7 +26,7 @@ router.get ('/', productosController.galeria);
 
 router.get ('/detalle_producto/:id', productosController.detail);
 
-router.get ('/crear_producto', authMiddleware, productosController.createProduct);
+router.get ('/crear_producto', artistMiddleware, productosController.createProduct);
 
 router.post ('/crear_producto', uploadFile.single('fotos'), productosController.storeProduct);
 

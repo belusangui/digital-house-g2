@@ -102,6 +102,27 @@ let controller = {
 
         // }
 
+        let emailFound =  db.Artista.findOne({
+            where: {
+            email: req.body.email
+            }
+            }).then(function(email){
+                 return email
+            });
+
+        let usernameFound =  db.Artista.findOne({
+            where: {
+            username: req.body.username
+            }
+            }).then(function(username){
+                return username
+            });
+
+
+         //promise.all() 
+
+
+
          if (errors.isEmpty()) {
 
             let fecha = new Date();
