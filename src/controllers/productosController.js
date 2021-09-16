@@ -47,37 +47,28 @@ let controller = {
     
     storeProduct: (req, res) => {
 
-        let idNuevo=0
-        for(let p of productosArchivo){
-          if(idNuevo<p.id){
-              idNuevo=p.id
-          }
-      }
-        idNuevo++;
+        let nombreImagen = req.file.filename;
+       
+        let idArtista = req.session.userLogged.id;
 
-        let nombreImagen= req.file.filename
-
-        let productoNuevo={
-            id: idNuevo,
-            name: req.body.nombre,
-            artist: req.body.artista,
-            medium: req.body.medio,
-            category: req.body.tema,
-            description: req.body.descripcion,
-            price: req.body.precio,
-            discount: req.body.descuento,
-            width: req.body.ancho,
-            height: req.body.alto,
-            other_details: req.body.otros_detalles,
-            year: req.body.year,
-            img: nombreImagen
-        };
-
-        productosArchivo.push(productoNuevo);
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(productosArchivo, null, ' '));
-
-        res.redirect('/galeria')
+        let productoNuevo = {
+                    nombre: req.body.nombre,
+                    id_artistaFk: idArtista,
+                    id_medioFk: req.body.medio,
+                    id_categoriaFk: req.body.categoria,
+                    descripcion: req.body.descripcion,
+                    precio: req.body.precio,
+                    descuento: req.body.descuento,
+                    ancho: req.body.ancho,
+                    alto: req.body.alto,
+                    otros_detalles: req.body.otros_detalles,
+                    anio_creacion: req.body.year,
+                    img: nombreImagen
+               };
+        
+        db.Producto.create(productoNuevo).then(function(resultado) {
+            res.redirect('/galeria');
+        })
     },
 
     editProduct: (req, res) => {

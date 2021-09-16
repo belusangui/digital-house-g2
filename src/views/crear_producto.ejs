@@ -37,7 +37,7 @@
                     <label for="medio">Medio</label>
                     <select name="medio" class="crear-producto-field"  required>
                             <% for(let unMedio of medios) { %>
-                                <option value = "<%= unMedio.nombre %>">
+                                <option value = "<%= unMedio.id %>">
                                     <%= unMedio.nombre %>
                                 </option>
                         <% } %>
@@ -45,10 +45,10 @@
                 </div>
 
                 <div class="crear-producto">
-                    <label for="tema">Temática</label>
-                    <select name="tema" class="crear-producto-field"  required>
+                    <label for="categoria">Temática</label>
+                    <select name="categoria" class="crear-producto-field"  required>
                         <% for(let unaCategoria of categorias) { %>
-                            <option value = "<%= unaCategoria.nombre %>">
+                            <option value = "<%= unaCategoria.id %>">
                             <%= unaCategoria.nombre %>
                             </option>
                         <% } %>
