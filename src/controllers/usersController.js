@@ -91,42 +91,65 @@ let controller = {
 
         let errors = validationResult(req);
 
-        let userFound = user.findByField('email', req.body.email);
-
-
-        if(userFound){
-           return res.render('registro', {errors: 
-                {email: 
-                    {msg:'Este email ya está registrado'}
-                },
-                oldData: req.body
-                }
-                )
-
-        }
-
-         if (errors.isEmpty()) {
-
-            let idNuevo = user.generateId();
-            
-            let userToCreate = {
-                id: idNuevo,
-                    nombre_completo: req.body.nombre,
-                    domicilio: req.body.domicilio,
-                    email: req.body.email,
-                    password: bcryptjs.hashSync(req.body.password, 10),
-                    fecha_nacimiento: req.body.fecha_nacimiento
-            };
-            
-
-            user.create(userToCreate);
-
-            res.redirect('/');
-
-            } else {
-                let user= req.body;
-                res.render('registro', { errors: errors.mapped(), old: user });
+        //let userFound = user.findByField('email', req.body.email);
+        db.Comprador.findOne({
+            where: {
+            email: req.body.email
             }
+            }).then(function (userFound) {
+
+                if(userFound){
+                return res.render('registro', {errors: 
+                        {email: 
+                            {msg:'Este email ya está registrado'}
+                        },
+                        oldData: req.body
+                        }
+                        )
+
+                }else{
+                    if (errors.isEmpty()) {
+
+                    db.Comprador.create({
+                        nombre_completo: req.body.nombre,
+                        domicilio: req.body.domicilio,
+                        email: req.body.email,
+                        password:  bcryptjs.hashSync(req.body.password, 10),
+                        fecha_nacimiento: req.body.fecha_nacimiento,
+                    })
+                
+                    res.redirect('/');
+                
+                    } else {
+                        let user= req.body;
+                        res.render('registro', { errors: errors.mapped(), old: user });
+                    }
+                    
+                }
+            })
+
+        //  if (errors.isEmpty()) {
+
+        //     let idNuevo = user.generateId();
+            
+        //     let userToCreate = {
+        //         id: idNuevo,
+        //             nombre_completo: req.body.nombre,
+        //             domicilio: req.body.domicilio,
+        //             email: req.body.email,
+        //             password: bcryptjs.hashSync(req.body.password, 10),
+        //             fecha_nacimiento: req.body.fecha_nacimiento
+        //     };
+            
+
+        //     user.create(userToCreate);
+
+        //     res.redirect('/');
+
+        //     } else {
+        //         let user= req.body;
+        //         res.render('registro', { errors: errors.mapped(), old: user });
+        //     }
 
         },
 
