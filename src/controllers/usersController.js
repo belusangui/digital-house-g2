@@ -13,7 +13,6 @@ let controller = {
         res.render('login');
     },
     processLogin: (req, res) => {
-      // let userFound = user.findByField('email', req.body.email);
 
         db.Comprador.findOne({
         where: {
@@ -39,7 +38,6 @@ let controller = {
                         }
                     }});
                 }
-                
             }else{
                 res.render('login', {errors: {
                     email:{

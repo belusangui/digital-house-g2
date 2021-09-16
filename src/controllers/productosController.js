@@ -1,9 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../databaseJson/products.json');
-const productosArchivo = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 const db = require('../database/models');
 
 
@@ -128,26 +125,19 @@ let controller = {
         },
 
     delete: (req, res) => {
-        let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let id = req.params.id;
 
-        let ProductoEncontrado;
+        let idToDelete = req.params.id;
 
-		let newProduct = products.filter(function(obra){
-			return id!=obra.id;
-		})
+        db.Producto.findByPk(idToDelete)
+            .then(function(producto){
+                let imagenAnterior = producto.img;
+                fs.unlinkSync(path.join(__dirname, '../../public/img', imagenAnterior)); // borro imagen vieja
+            })
+            .then(db.Producto.destroy({where: {id: idToDelete}}) //borro producto de base de datos
+                    .then(function(){
+                        res.redirect('/galeria');
+                    }))
 
-        for (let producto of products){
-			if (producto.id == id){
-			    ProductoEncontrado=producto;
-			}
-		}
-
-		fs.unlinkSync(path.join(__dirname, '../../public/img', ProductoEncontrado.img));
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(newProduct,null,' '));
-
-		res.redirect('/galeria');
     },
 }
 
