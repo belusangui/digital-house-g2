@@ -93,7 +93,7 @@ let controller = {
         res.render('editar_producto',{obraAEditar: obraId}); 
     },
 
-    editStore: (req, res) => {
+    updateProduct: (req, res) => {
 
         let id = req.params.id;
     

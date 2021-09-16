@@ -31,7 +31,7 @@ router.post ('/crear_producto', uploadFile.single('fotos'), productosController.
 
 router.get ('/editar_producto/:id', authMiddleware, productosController.editProduct);
 
-router.put ('/editar_producto/:id', uploadFile.single('fotos'),productosController.editStore);
+router.put ('/editar_producto/:id', uploadFile.single('fotos'),productosController.updateProduct);
 
 router.delete('/:id', productosController.delete);
 
