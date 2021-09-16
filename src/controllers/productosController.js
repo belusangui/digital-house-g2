@@ -73,54 +73,59 @@ let controller = {
 
     editProduct: (req, res) => {
 
-        let id = req.params.id;
-		let obraId;
 
-		for (let obra of productosArchivo){
-			if (id==obra.id){
-				obraId=obra;
-			}
-		}
-        res.render('editar_producto',{obraAEditar: obraId}); 
+        let allCategorias = db.Categoria.findAll()
+            .then(function (categorias) {
+                return categorias
+        });
+        let allMedios = db.Medio.findAll()
+            .then(function (medios) {
+            return medios
+        });
+
+        let id = req.params.id;
+
+        let obra = db.Producto.findByPk(id).then(function(obraData){
+            return obraData; 
+        })
+
+        Promise.all([allCategorias, allMedios, obra])
+            .then(function([dataCategorias, dataMedios, dataObra]){
+                res.render('editar_producto',{categorias: dataCategorias, medios: dataMedios, obraAEditar: dataObra });
+            })
+
     },
 
     updateProduct: (req, res) => {
 
-        let id = req.params.id;
-    
-        let imagenAnterior;
+        let idProducto = req.params.id;
 
-       for (let obra of productosArchivo){
-			if (id==obra.id){
-                 imagenAnterior = obra.img;
-            }
-       }
+        let nombreImagen = req.file.filename;
 
-		for (let obra of productosArchivo){
-			if (id==obra.id){
-				obra.name= req.body.nombre;
-				obra.artist= req.body.artista;
-				obra.medium= req.body.medio;
-				obra.category= req.body.tema;
-				obra.description= req.body.descripcion;
-                obra.price= req.body.precio;
-                obra.discount= req.body.descuento;
-                obra.width= req.body.ancho;
-                obra.height= req.body.alto;
-                obra.other_details= req.body.otros_detalles;
-                obra.year= req.body.year;
-                obra.img= req.file.filename;
-				break;
-                
-			}
-		}
+        let newDataProduct = {
+            nombre: req.body.nombre,
+            id_medioFk: req.body.medio,
+            id_categoriaFk: req.body.categoria,
+            descripcion: req.body.descripcion,
+            precio: req.body.precio,
+            descuento: req.body.descuento,
+            ancho: req.body.ancho,
+            alto: req.body.alto,
+            otros_detalles: req.body.otros_detalles,
+            anio_creacion: req.body.year,
+            img: nombreImagen
+        };
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(productosArchivo,null,' '));
-
-        fs.unlinkSync(path.join(__dirname, '../../public/img', imagenAnterior));
-
-		res.redirect('/galeria');
-    },
+        db.Producto.findByPk(idProducto)
+            .then(function(producto){
+                let imagenAnterior = producto.img;
+                fs.unlinkSync(path.join(__dirname, '../../public/img', imagenAnterior));  //borro imagen vieja
+            })
+            .then(db.Producto.update(newDataProduct, {where: {id: idProducto}}))
+            .then(function(resultado){
+            res.redirect('/galeria');
+            });
+        },
 
     delete: (req, res) => {
         let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));

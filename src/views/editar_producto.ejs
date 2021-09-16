@@ -22,48 +22,35 @@
                     
                     <div class="crear-producto">
                         <label for="nombre">Nombre de la obra</label>
-                        <input value="<%=obraAEditar.name %>"type="text" name="nombre" class="crear-producto-field" required>
-                    </div>
-
-                    <div class="crear-producto">
-                        <label for="artista">Artista</label>
-                        <input value="<%=obraAEditar.artist %>"type="text" name="artista" class="crear-producto-field" required>
+                        <input value="<%=obraAEditar.nombre %>"type="text" name="nombre" class="crear-producto-field" required>
                     </div>
                     
                     <div class="crear-producto">
                         <label for="fecha-creacion">Año de Creación</label>
-                        <input value="<%=obraAEditar.year %>" type="text" name="year" class="crear-producto-field"  required>
+                        <input value="<%=obraAEditar.anio_creacion %>" type="text" name="year" class="crear-producto-field"  required>
                     </div>
      
                                    
                     <div class="crear-producto">
                         <label for="medio">Medio</label>
                         <select name="medio" class="crear-producto-field"  required>
-                            <% let medios = ['Pintura', 'Escultura','Fotografía','Dibujo', 'Textil', 'Collage']%>
                             <% for(let unMedio of medios) { %>
-                                <option 
-                                    value = "<%= unMedio %>"
-                                    <%= unMedio === obraAEditar.medium ? 'selected' : null %>
-                                >
-                                <%= unMedio %></option>
-                            <% } %>
+                                <option value = "<%= unMedio.id %>" <%= unMedio.id === obraAEditar.id_medioFk ? 'selected' : null %> >
+                                    <%= unMedio.nombre %>
+                                </option>
+                        <% } %>
                         </select>
                     </div>
                     
                         
                     <div class="crear-producto">
-                        <label for="tema">Temática</label>
-                        <select name="tema" class="crear-producto-field"  required>
-
-                           <% let categorias = ['Street art', 'Autoretrato','Retrato', 'Urbano', 'Paisajes', 'Naturaleza', 'Desnudo', 'Abstracto', 'Pop Art']%>
+                        <label for="categoria">Temática</label>
+                        <select name="categoria" class="crear-producto-field"  required>
                             <% for(let unaCategoria of categorias) { %>
-                                <option 
-                                    value = "<%= unaCategoria %>"
-                                    <%= unaCategoria === obraAEditar.category ? 'selected' : null %>
-                                >
-                                <%= unaCategoria %></option>
-                            <% } %>
-
+                                <option value = "<%= unaCategoria.id %>" <%= unaCategoria.id === obraAEditar.id_categoriaFk ? 'selected' : null %> >
+                                    <%= unaCategoria.nombre %>
+                                </option>
+                        <% } %>
                         </select>
                     </div>
     
@@ -75,24 +62,24 @@
                         
                         <div class="crear-producto-dimensiones-obejeto">
                             <label for="ancho">ancho</label>
-                            <input value="<%=obraAEditar.width %>"type="number" name="ancho" class="crear-producto-field"  required>
+                            <input value="<%=obraAEditar.ancho %>"type="number" name="ancho" class="crear-producto-field"  required>
                         </div>
                         <div lass="crear-producto-dimensiones-obejeto">
                             <label for="alto">alto</label>
-                            <input value="<%=obraAEditar.height %>"type="number" name="alto" class="crear-producto-field"  required>
+                            <input value="<%=obraAEditar.alto %>"type="number" name="alto" class="crear-producto-field"  required>
                         </div>
                           
                     </div>
 
                     <div class="crear-producto crear-producto-descripcion">
                         <label for="descripcion">Descripción de la obra</label>
-                        <textarea name="descripcion" class="crear-producto-field"  required><%=obraAEditar.description %></textarea>
+                        <textarea name="descripcion" class="crear-producto-field"  required><%=obraAEditar.descripcion %></textarea>
     
                     </div>
 
                     <div class="crear-producto crear-producto-descripcion">
                         <label for="otros_detalles">Otros detalles</label>
-                        <textarea name="otros_detalles" class="crear-producto-field" placeholder="Ej: Enmarcado, soporte, peso" required><%=obraAEditar.other_details %></textarea>
+                        <textarea name="otros_detalles" class="crear-producto-field" placeholder="Ej: Enmarcado, soporte, peso" required><%=obraAEditar.otros_detalles %></textarea>
     
                     </div>
     
@@ -106,12 +93,12 @@
     
                     <div class="crear-producto crear-producto-precio">
                         <label for="precio">Precio de la obra</label>
-                        <input value="<%=obraAEditar.price %>"type="number" name="precio" class="crear-producto-field" placeholder=>
+                        <input value="<%=obraAEditar.precio %>"type="number" name="precio" class="crear-producto-field" placeholder=>
                     </div>
 
                     <div class="crear-producto crear-producto-precio">
                         <label for="descuento">Descuento</label>
-                        <input value="<%=obraAEditar.discount %>"type="number" name="descuento" class="crear-producto-field" placeholder=>
+                        <input value="<%=obraAEditar.descuento %>"type="number" name="descuento" class="crear-producto-field" placeholder=>
                     </div>
     
     
