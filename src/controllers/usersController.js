@@ -116,9 +116,11 @@ let controller = {
                         email: req.body.email,
                         password:  bcryptjs.hashSync(req.body.password, 10),
                         fecha_nacimiento: req.body.fecha_nacimiento,
+                    }).then(function(resultado) {
+                        res.redirect('/');
                     })
                 
-                    res.redirect('/');
+                   // res.redirect('/');
                 
                     } else {
                         let user= req.body;
