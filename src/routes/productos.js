@@ -26,11 +26,11 @@ router.get ('/', productosController.galeria);
 
 router.get ('/detalle_producto/:id', productosController.detail);
 
-router.get ('/crear_producto', artistMiddleware, productosController.createProduct);
+router.get ('/crear_producto', authMiddleware, artistMiddleware, productosController.createProduct);
 
 router.post ('/crear_producto', uploadFile.single('fotos'), productosController.storeProduct);
 
-router.get ('/editar_producto/:id', authMiddleware, productosController.editProduct);
+router.get ('/editar_producto/:id', authMiddleware, artistMiddleware, productosController.editProduct);
 
 router.put ('/editar_producto/:id', uploadFile.single('fotos'),productosController.updateProduct);
 

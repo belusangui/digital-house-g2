@@ -1,5 +1,5 @@
 function artistMiddleware(req, res, next){
-    if(!req.session.userLogged.username){
+    if(!req.session.userLogged.nombre_usuario){
         return res.redirect('/');
     }
     next();

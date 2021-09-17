@@ -16,8 +16,8 @@
                         <li class="nav-item dropdown" id="dropdown-header">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                              <% if(locals.usuarioLogueado){ %>
-                                     <% if(locals.usuarioLogueado.username){ %>
-                                        <%= locals.usuarioLogueado.username %>
+                                     <% if(locals.usuarioLogueado.nombre_usuario){ %>
+                                        <%= locals.usuarioLogueado.nombre_usuario %>
                                         <% }else{ %>
                                      <%= locals.usuarioLogueado.nombre_completo %>
                                          <% } %>
@@ -28,6 +28,9 @@
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <% if(locals.usuarioLogueado){ %>
                                     <li class="login"><a href="/user/mi_perfil/<%= locals.usuarioLogueado.id %>">Mi Perfil</i></a></li>
+                                    <% if(locals.usuarioLogueado.nombre_usuario){ %>
+                                        <li class="login"><a href="/crear_producto">Publicar Obras</a></li>
+                                        <% } %>
                                     <li class="login"><a href="/user/logout">Log Out</a></li>
                                     <% }else{ %>
                                 <li class="login"><a href="/user/ingresar" id="botonIngresar">Comprador</a></li>
