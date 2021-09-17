@@ -53,36 +53,7 @@ let controller = {
             }})
         })
            
-    
-    
 
-
-       /*if(userFound){
-           let accesoPermitido= bcryptjs.compareSync(req.body.password, userFound.password)
-           if(accesoPermitido){
-               delete userFound.password
-               req.session.userLogged = userFound;
-            
-               if(req.body.remember-user != undefined) {
-                res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-                }
-
-               res.redirect('/')
-           }else{
-               res.render('login', {errors: {
-                   password:{
-                       msg: 'Las credenciales son invalidas'
-                   }
-               }});
-           }
-           
-       }else{
-           res.render('login', {errors: {
-               email:{
-                   msg: 'No se encuentra este email'
-               }
-           }});
-       }*/
     },
     register: (req, res)=>{
         res.render('registro');
@@ -91,7 +62,7 @@ let controller = {
 
         let errors = validationResult(req);
 
-        //let userFound = user.findByField('email', req.body.email);
+        
         db.Comprador.findOne({
             where: {
             email: req.body.email
@@ -120,7 +91,6 @@ let controller = {
                         res.redirect('/');
                     })
                 
-                   // res.redirect('/');
                 
                     } else {
                         let user= req.body;
@@ -130,29 +100,7 @@ let controller = {
                 }
             })
 
-        //  if (errors.isEmpty()) {
-
-        //     let idNuevo = user.generateId();
-            
-        //     let userToCreate = {
-        //         id: idNuevo,
-        //             nombre_completo: req.body.nombre,
-        //             domicilio: req.body.domicilio,
-        //             email: req.body.email,
-        //             password: bcryptjs.hashSync(req.body.password, 10),
-        //             fecha_nacimiento: req.body.fecha_nacimiento
-        //     };
-            
-
-        //     user.create(userToCreate);
-
-        //     res.redirect('/');
-
-        //     } else {
-        //         let user= req.body;
-        //         res.render('registro', { errors: errors.mapped(), old: user });
-        //     }
-
+        
         },
 
     perfilUsuario: (req, res) => {

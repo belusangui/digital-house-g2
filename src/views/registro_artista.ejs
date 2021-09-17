@@ -24,9 +24,23 @@
                         <% } %>
                     </div>
                     <div class="form-section">
+                        <input type="text" name="titular" class="login-field <%= locals.errors && errors.titular ? 'is-invalid' : null %>" placeholder="Titular" value="<%= locals.old && old.titular ? old.titular : '' %>">
+                        <% if (locals.errors && errors.titular) { %>
+                            <p class="error-message"><%=errors.titular.msg%></p>
+                        <% } %>
+                    </div>
+                    <div class="form-section">
                         <input type="text" name="username" class="login-field <%= locals.errors && errors.username ? 'is-invalid' : null %>" placeholder="Nombre de Usuario" value="<%= locals.old && old.username ? old.username : '' %>">
                         <% if (locals.errors && errors.username) { %>
                             <p class="error-message"><%=errors.username.msg%></p>
+                        <% } %>
+                    </div>
+                    <div class="form-section">
+                        <label for="biografia">Biografía</label>
+                        <textarea name="biografia" class="login-field <%= locals.errors && errors.biografia ? 'is-invalid' : null %>" placeholder="Ej: Curriculum vitae, formación, exposiciones, premios"></textarea>
+                        <!-- "<%= locals.old && old.biografia ? old.biografia : '' %>" -->
+                        <% if (locals.errors && errors.biografia) { %>
+                            <p class="error-message"><%=errors.biografia.msg%></p>
                         <% } %>
                     </div>
                     <div class="form-section">
@@ -54,6 +68,7 @@
                         <% } %>
                     </div>
                     <div class="form-section">
+                        <label for="fecha_nacimiento">Fecha de nacimiento</label>
                         <input type="date" name="fecha_nacimiento" class="login-field <%= locals.errors && errors.fecha_nacimiento ? 'is-invalid' : null %>" placeholder="Confirmar contraseña">
                         <% if (locals.errors && errors.fecha_nacimiento) { %>
                             <p class="error-message"><%=errors.fecha_nacimiento.msg%></p>

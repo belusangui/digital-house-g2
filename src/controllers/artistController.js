@@ -11,76 +11,47 @@ let controller = {
     },
     processLogin: (req, res) => {
         db.Artista.findOne({
-        where: {
-        email: req.body.email
-        }
-        }).then(function (artistFound) {
-            
-            if(artistFound){
-                let accesoPermitido= bcryptjs.compareSync(req.body.password, artistFound.password)
-                if(accesoPermitido){
-                    delete artistFound.password
-                    req.session.artistLogged = artistFound;
-                 
-                    if(req.body.remember-artist != undefined) {
-                     res.cookie('artistEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-                     }
-     
-                    res.redirect('/')
+            where: {
+            email: req.body.email
+            }
+            }).then(function (artistFound) {
+                
+                if(artistFound){
+                    let accesoPermitido= bcryptjs.compareSync(req.body.password, artistFound.password)
+                    if(accesoPermitido){
+                        delete artistFound.password
+                        req.session.userLogged = artistFound;
+                     
+                        if(req.body.rememberArtist != undefined) {
+                         res.cookie('artistEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                         }
+         
+                        res.redirect('/')
+                    }else{
+                        res.render('login_artista', {errors: {
+                            password:{
+                                msg: 'Las credenciales son invalidas'
+                            }
+                        }});
+                    }
                 }else{
                     res.render('login_artista', {errors: {
-                        password:{
-                            msg: 'Las credenciales son invalidas'
+                        email:{
+                            msg: 'No se encuentra este email'
                         }
                     }});
                 }
-                
-            }else{
+            }).catch(function (error){
                 res.render('login_artista', {errors: {
                     email:{
-                        msg: 'No se encuentra este email'
+                        msg: 'Error'
                     }
-                }});
-            }
-        }).catch(function (error){
-            res.render('login_artista', {errors: {
-                email:{
-                    msg: 'Error'
-                }
-            }})
-        })
-           
+                }})
+            })
     
+        },
+        
     
-
-
-       /*if(artistFound){
-           let accesoPermitido= bcryptjs.compareSync(req.body.password, artistFound.password)
-           if(accesoPermitido){
-               delete artistFound.password
-               req.session.artistLogged = artistFound;
-            
-               if(req.body.remember-artist != undefined) {
-                res.cookie('artistEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-                }
-
-               res.redirect('/')
-           }else{
-               res.render('login', {errors: {
-                   password:{
-                       msg: 'Las credenciales son invalidas'
-                   }
-               }});
-           }
-           
-       }else{
-           res.render('login', {errors: {
-               email:{
-                   msg: 'No se encuentra este email'
-               }
-           }});
-       }*/
-    },
     register: (req, res)=>{
         res.render('registro_artista');
     },
@@ -88,72 +59,57 @@ let controller = {
 
         let errors = validationResult(req);
 
-        // let artistFound = artist.findByField('email', req.body.email);
-
-
-        // if(artistFound){
-        //    return res.render('registro', {errors: 
-        //         {email: 
-        //             {msg:'Este email ya está registrado'}
-        //         },
-        //         oldData: req.body
-        //         }
-        //         )
-
-        // }
-
-        let emailFound =  db.Artista.findOne({
+        
+        db.Artista.findOne({
             where: {
             email: req.body.email
             }
-            }).then(function(email){
-                 return email
-            });
+            }).then(function (artistFound) {
 
-        let usernameFound =  db.Artista.findOne({
-            where: {
-            username: req.body.username
-            }
-            }).then(function(username){
-                return username
-            });
+                if(artistFound){
+                return res.render('registro_artista', {errors: 
+                        {email: 
+                            {msg:'Este email ya está registrado'}
+                        },
+                        oldData: req.body
+                        }
+                        )
 
+                }else{
+                    if (errors.isEmpty()) {
+                    let fecha = new Date();
+                    let dia= fecha.getDate();
+                    let mes = fecha.getMonth();
+                    let anio = fecha.getFullYear();
+                    let fechaActual = anio + '-' + (mes + 1) + '-' + dia;
 
-         //promise.all() 
+                    db.Artista.create({
+                        nombre_completo: req.body.nombre,
+                        nombre_usuario: req.body.username,
+                        titular: req.body.titular,
+                        biografia: req.body.biografia,
+                        domicilio: req.body.domicilio,
+                        email: req.body.email,
+                        img: req.file.filename,
+                        password:  bcryptjs.hashSync(req.body.password, 10),
+                        fecha_nacimiento: req.body.fecha_nacimiento,
+                        fecha_alta: fechaActual
+                    }).then(function(resultado) {
+                        res.redirect('/');
+                    })
+                
+                
+                    } else {
+                        let user= req.body;
+                        res.render('registro_artista', { errors: errors.mapped(), old: user });
+                    }
+                    
+                }
+            })
 
-
-
-         if (errors.isEmpty()) {
-
-            let fecha = new Date();
-            let dia= fecha.getDate();
-            let mes = fecha.getMonth();
-            let anio = fecha.getFullYear()
-            let fechaActual = anio + '-' + mes + '-' + dia
-    
-            let artistToCreate = {
-                    nombre_completo: req.body.nombre,
-                    nombre_usuario: req.body.username,
-                    domicilio: req.body.domicilio,
-                    email: req.body.email,
-                    password: bcryptjs.hashSync(req.body.password, 10),
-                    fecha_nacimiento: req.body.fecha_nacimiento,
-                    img: req.file.filename,
-                    fecha_alta: fechaActual,
-                    fecha_baja: null
-            };
-            
-
-            db.Artist.create(artistToCreate);
-
-            res.redirect('/');
-
-            } else {
-                let artist= req.body;
-                res.render('registro_artista', { errors: errors.mapped(), old: artist });
-            }
-
+        
         },
+
 
       perfilArtista: (req, res) => {
 
