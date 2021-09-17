@@ -29,7 +29,7 @@
                                 <% if(locals.usuarioLogueado){ %>
                                     <li class="login"><a href="/user/mi_perfil/<%= locals.usuarioLogueado.id %>">Mi Perfil</i></a></li>
                                     <% if(locals.usuarioLogueado.nombre_usuario){ %>
-                                        <li class="login"><a href="/crear_producto">Publicar Obras</a></li>
+                                        <li class="login"><a href="/galeria/crear_producto">Publicar Obras</a></li>
                                         <% } %>
                                     <li class="login"><a href="/user/logout">Log Out</a></li>
                                     <% }else{ %>

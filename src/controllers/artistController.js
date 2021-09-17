@@ -72,11 +72,24 @@ let controller = {
                             {msg:'Este email ya está registrado'}
                         },
                         oldData: req.body
-                        }
-                        )
+                        })
+                        
 
                 }else{
-                    if (errors.isEmpty()) {
+                    db.Artista.findOne({
+                        where: {
+                            nombre_usuario: req.body.username
+                        }
+                    }).then(function(usernameFound){
+                        if(usernameFound){
+                            return res.render('registro_artista', {errors:
+                                {username:
+                                   {msg: 'Usuario ya existente'}
+                                },
+                                oldData: req.body
+                            })
+                        }else{
+                     if (errors.isEmpty()) {
                     let fecha = new Date();
                     let dia= fecha.getDate();
                     let mes = fecha.getMonth();
@@ -102,7 +115,8 @@ let controller = {
                     } else {
                         let user= req.body;
                         res.render('registro_artista', { errors: errors.mapped(), old: user });
-                    }
+                    }}
+                    })
                     
                 }
             })
