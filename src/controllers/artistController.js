@@ -128,7 +128,7 @@ let controller = {
       perfilArtista: (req, res) => {
 
         return res.render('perfil_artista', {
-			artist: req.session.artistLogged
+			artist: req.session.userLogged
 		});
     },
 

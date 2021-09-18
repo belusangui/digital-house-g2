@@ -1,9 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const usersFilePath = path.join(__dirname, '../databaseJson/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const {validationResult} = require('express-validator');
-const user = require('../models/user');
 const bcryptjs = require('bcryptjs');
 
 const db = require('../database/models');
@@ -26,7 +23,7 @@ let controller = {
                     delete userFound.password
                     req.session.userLogged = userFound;
                  
-                    if(req.body.remember-user != undefined) {
+                    if(req.body.rememberUser != undefined) {
                      res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
                      }
      
@@ -46,6 +43,7 @@ let controller = {
                 }});
             }
         }).catch(function (error){
+            console.log("el error es:", error);
             res.render('login', {errors: {
                 email:{
                     msg: 'Error'
@@ -93,8 +91,8 @@ let controller = {
                 
                 
                     } else {
-                        let user= req.body;
-                        res.render('registro', { errors: errors.mapped(), old: user });
+                        let userToLog = req.body;
+                        res.render('registro', { errors: errors.mapped(), old: userToLog });
                     }
                     
                 }
