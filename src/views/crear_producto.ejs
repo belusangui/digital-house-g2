@@ -44,27 +44,36 @@
                                
                 <div class="crear-producto">
                     <label for="medio">Medio</label>
-                    <select name="medio" class="crear-producto-field" required>
-                            <% for(let unMedio of medios) { %>
-                                <option value = "<%= unMedio.id %>">      
-                                    <%= unMedio.nombre %>
-                                </option>
+                    <select name="medio" class="crear-producto-field <%= locals.errors && errors.medio ? 'is-invalid' : null %>">
+                        <% for (let unMedio of medios) { %>
+                            <option 
+                                value="<%= unMedio.id %>"
+                                <%= locals.old &&  (unMedio.id === old.medio) ? 'selected' : null %> >
+                                <%= unMedio.nombre %> 
+                            </option>
                         <% } %>
+                           
                          
                     </select>
+                    <% if (locals.errors && errors.medio) { %>
+                        <p class="error-message"><%=errors.medio.msg%></p>
+                    <% } %> 
                 </div>
 
                 <div class="crear-producto">
                     <label for="categoria">Temática</label>
-                    <select name="categoria" class="crear-producto-field"  required>
+                    <select name="categoria" class="crear-producto-field <%= locals.errors && errors.categoria ? 'is-invalid' : null %>" >
                         <% for(let unaCategoria of categorias) { %>
-                            <option value = "<%= unaCategoria.id %>" >
-                                  
-                                <%= unaCategoria.nombre %>
-                            </option>
+                            <option 
+                            value="<%= unaCategoria.id %>"
+                            <%= locals.old && (unaCategoria.id === old.categoria) ? 'selected' : null %> 
+                        > <%= unaCategoria.nombre %> </option>
                         <% } %>
                         
                     </select>
+                    <% if (locals.errors && errors.categoria) { %>
+                        <p class="error-message"><%=errors.categoria.msg%></p>
+                    <% } %> 
                 </div>
 
 
@@ -112,7 +121,10 @@
 
                 <div class="crear-producto crear-producto-fotos">
                     <label for="fotos">Imágenes de la obra</label>
-                    <input type="file" name="fotos" class="crear-producto-field" required>
+                    <input type="file" name="fotos" class="crear-producto-field <%= locals.errors && errors.fotos ? 'is-invalid' : null %>" >
+                    <% if (locals.errors && errors.fotos) { %>
+                        <p class="error-message"><%=errors.fotos.msg%></p>
+                    <% } %>
                 </div>
 
                 <div class="crear-producto crear-producto-precio">

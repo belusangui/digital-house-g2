@@ -25,11 +25,29 @@ const validateCreation = [
     body('nombre').notEmpty().withMessage('Debes completar el nombre de la obra.'),
     body('artista').notEmpty().withMessage('Debes ingresar el nombre del artista.'),
     body('year').notEmpty().withMessage('Debes ingresar el año de creación de la obra.'),
-    body('ancho').notEmpty().withMessage('Debes ingresar el ancho de la obra.'),
-    body('alto').notEmpty().withMessage('Debes ingresar el ancho de la obra.'),
+    body('medio').notEmpty().withMessage('Debes ingresar una categoría de la obra.'),
+    body('categoria').notEmpty().withMessage('Debes ingresar una categoría de la obra.'),
+    body('ancho').notEmpty().withMessage('Debes ingresar el ancho de la obra.').bail().isDecimal().withMessage('Debes ingresar el ancho de la obra.'),
+    body('alto').notEmpty().withMessage('Debes ingresar el alto de la obra.').bail().isDecimal().withMessage('Debes ingresar el alto de la obra.'),
     body('descripcion').notEmpty().withMessage('Debes ingresar una descripción de la obra.'),
     body('otros_detalles').notEmpty().withMessage('Debes ingresar otros detalles de la obra.'),
-    body('precio').notEmpty().withMessage('Debes ingresar el precio de la obra.'),
+    body('precio').notEmpty().withMessage('Debes ingresar el precio de la obra.').bail().isNumeric().withMessage('Debes ingresar el precio de la obra.'),
+    body('fotos').custom((value, { req }) => {
+        let file = req.file;
+        let extensionesValidas = ['.jpg', '.png'];
+        
+        if(!file){
+            throw new Error('Debes seleccionar una imagen de la obra.');
+        }else{
+            let fileExtension = path.extname(file.originalname);
+            if(!extensionesValidas.includes(fileExtension))
+            {
+                throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            }
+        }
+        return true;
+    }
+    )
 ];
 
 router.get ('/', productosController.galeria);
