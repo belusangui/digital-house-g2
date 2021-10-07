@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
+const {validationResult} = require('express-validator');
 const db = require('../database/models');
 
 
@@ -43,29 +43,48 @@ let controller = {
     },
     
     storeProduct: (req, res) => {
-
-        let nombreImagen = req.file.filename;
-       
-        let idArtista = req.session.userLogged.id;
-
-        let productoNuevo = {
-                    nombre: req.body.nombre,
-                    id_artistaFk: idArtista,
-                    id_medioFk: req.body.medio,
-                    id_categoriaFk: req.body.categoria,
-                    descripcion: req.body.descripcion,
-                    precio: req.body.precio,
-                    descuento: req.body.descuento,
-                    ancho: req.body.ancho,
-                    alto: req.body.alto,
-                    otros_detalles: req.body.otros_detalles,
-                    anio_creacion: req.body.year,
-                    img: nombreImagen
-               };
+        let errors = validationResult(req);
         
-        db.Producto.create(productoNuevo).then(function(resultado) {
-            res.redirect('/galeria');
-        })
+        if(errors.errors.length == 0){
+            let nombreImagen = req.file.filename;
+       
+            let idArtista = req.session.userLogged.id;
+
+            let productoNuevo = {
+                        nombre: req.body.nombre,
+                        id_artistaFk: idArtista,
+                        id_medioFk: req.body.medio,
+                        id_categoriaFk: req.body.categoria,
+                        descripcion: req.body.descripcion,
+                        precio: req.body.precio,
+                        descuento: req.body.descuento,
+                        ancho: req.body.ancho,
+                        alto: req.body.alto,
+                        otros_detalles: req.body.otros_detalles,
+                        anio_creacion: req.body.year,
+                        img: nombreImagen
+                };
+            
+            db.Producto.create(productoNuevo).then(function(resultado) {
+                res.redirect('/galeria');
+            })
+        }else{
+            let allCategorias = db.Categoria.findAll()
+            .then(function (categorias) {
+                return categorias
+            });
+            let allMedios = db.Medio.findAll()
+                .then(function (medios) {
+                return medios
+            });
+
+            Promise.all([allCategorias, allMedios])
+                .then(function([dataCategorias, dataMedios]){
+                    res.render('crear_producto',{categorias: dataCategorias, medios: dataMedios, errors: errors.mapped(), old: req.body });
+                })
+            
+        }
+        
     },
 
     editProduct: (req, res) => {

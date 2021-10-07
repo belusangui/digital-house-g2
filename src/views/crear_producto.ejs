@@ -19,28 +19,38 @@
 
                 <div class="crear-producto">
                     <label for="nombre">Nombre de la obra</label>
-                    <input type="text" name="nombre" class="crear-producto-field" required>
+                    <input type="text" name="nombre" class="crear-producto-field <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
+                    <% if (locals.errors && errors.nombre) { %>
+                        <p class="error-message"><%=errors.nombre.msg%></p>
+                    <% } %> 
                 </div>
 
                 <div class="crear-producto">
                     <label for="artista">Artista</label>
-                    <input type="text" name="artista" class="crear-producto-field" required>
+                    <input type="text" name="artista" class="crear-producto-field <%= locals.errors && errors.artista ? 'is-invalid' : null %>"  value="<%= locals.old && old.artista ? old.artista : '' %>">
+                    <% if (locals.errors && errors.artista) { %>
+                        <p class="error-message"><%=errors.artista.msg%></p>
+                    <% } %> 
                 </div>
                 
                 <div class="crear-producto">
                     <label for="fecha-creacion">Año de Creación</label>
-                    <input type="text" name="year" class="crear-producto-field"  required>
+                    <input type="text" name="year" class="crear-producto-field <%= locals.errors && errors.year ? 'is-invalid' : null %>"  value="<%= locals.old && old.year ? old.year : '' %>">
+                    <% if (locals.errors && errors.year) { %>
+                        <p class="error-message"><%=errors.year.msg%></p>
+                    <% } %>  
                 </div>
  
                                
                 <div class="crear-producto">
                     <label for="medio">Medio</label>
-                    <select name="medio" class="crear-producto-field"  required>
+                    <select name="medio" class="crear-producto-field" required>
                             <% for(let unMedio of medios) { %>
-                                <option value = "<%= unMedio.id %>">
+                                <option value = "<%= unMedio.id %>">      
                                     <%= unMedio.nombre %>
                                 </option>
                         <% } %>
+                         
                     </select>
                 </div>
 
@@ -48,10 +58,12 @@
                     <label for="categoria">Temática</label>
                     <select name="categoria" class="crear-producto-field"  required>
                         <% for(let unaCategoria of categorias) { %>
-                            <option value = "<%= unaCategoria.id %>">
-                            <%= unaCategoria.nombre %>
+                            <option value = "<%= unaCategoria.id %>" >
+                                  
+                                <%= unaCategoria.nombre %>
                             </option>
                         <% } %>
+                        
                     </select>
                 </div>
 
@@ -63,23 +75,36 @@
                     
                     <div class="crear-producto-dimensiones-obejeto">
                         <label for="ancho">ancho</label>
-                        <input type="number" name="ancho" class="crear-producto-field"  required>
+                        <input type="number" name="ancho" class="crear-producto-field <%= locals.errors && errors.ancho ? 'is-invalid' : null %>" value="<%= locals.old && old.ancho ? old.ancho : '' %>">
+                        <% if (locals.errors && errors.ancho) { %>
+                            <p class="error-message"><%=errors.ancho.msg%></p>
+                        <% } %>  
                     </div>
                     <div lass="crear-producto-dimensiones-obejeto">
                         <label for="alto">alto</label>
-                        <input type="number" name="alto" class="crear-producto-field"  required>
+                        <input type="number" name="alto" class="crear-producto-field <%= locals.errors && errors.alto ? 'is-invalid' : null %>" value="<%= locals.old && old.alto ? old.alto : '' %>">
+                        <% if (locals.errors && errors.alto) { %>
+                            <p class="error-message"><%=errors.alto.msg%></p>
+                        <% } %>  
                     </div>
                 </div>
 
                 <div class="crear-producto crear-producto-descripcion">
+                    
                     <label for="descripcion">Descripción de la obra</label>
-                    <textarea name="descripcion" class="crear-producto-field"  required></textarea>
+                    <textarea name="descripcion" class="crear-producto-field <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>"><%= locals.old && old.descripcion ? old.descripcion : '' %></textarea>
+                    <% if (locals.errors && errors.descripcion) { %>
+                        <p class="error-message"><%=errors.descripcion.msg%></p>
+                    <% } %> 
 
                 </div>
 
                 <div class="crear-producto crear-producto-descripcion">
                     <label for="otros_detalles">Otros detalles</label>
-                    <textarea name="otros_detalles" class="crear-producto-field" placeholder="Ej: Enmarcado, soporte, peso" required></textarea>
+                    <textarea name="otros_detalles" class="crear-producto-field <%= locals.errors && errors.otros_detalles ? 'is-invalid' : null %>" placeholder="Ej: Enmarcado, soporte, peso"><%= locals.old && old.otros_detalles ? old.otros_detalles : '' %></textarea>
+                    <% if (locals.errors && errors.otros_detalles) { %>
+                        <p class="error-message"><%=errors.otros_detalles.msg%></p>
+                    <% } %> 
 
                 </div>
 
@@ -92,12 +117,18 @@
 
                 <div class="crear-producto crear-producto-precio">
                     <label for="precio">Precio de la obra</label>
-                    <input type="number" name="precio" class="crear-producto-field">
+                    <input type="number" name="precio" class="crear-producto-field <%= locals.errors && errors.precio ? 'is-invalid' : null %>" value="<%= locals.old && old.precio ? old.precio : '' %>">
+                    <% if (locals.errors && errors.precio) { %>
+                        <p class="error-message"><%=errors.precio.msg%></p>
+                    <% } %>
                 </div>
 
                 <div class="crear-producto crear-producto-precio">
                     <label for="descuento">Descuento</label>
-                    <input type="number" name="descuento" class="crear-producto-field">
+                    <input type="number" name="descuento" class="crear-producto-field <%= locals.errors && errors.descuento ? 'is-invalid' : null %>" value="<%= locals.old && old.descuento ? old.descuento : '' %>">
+                    <% if (locals.errors && errors.descuento) { %>
+                        <p class="error-message"><%=errors.descuento.msg%></p>
+                    <% } %>
                 </div>
 
 
