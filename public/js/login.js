@@ -42,17 +42,6 @@ if(atPosition < 1 || dotPosition < (atPosition+2) || dotPosition+2 >= email.leng
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
 })
 
 
