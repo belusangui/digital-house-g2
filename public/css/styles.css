@@ -2,7 +2,7 @@
 /* Paleta colores.
 
 Gris claro #F5F5F7 rgb(245,245,247)
-Gris un poco mas oscuro #dcdde5
+Gris un poco mas oscuro #F5F5F7
 Fucsia #9E0051
 Rosa viejo ##9b5d64
 Bordeaux ##6d0e0d
@@ -1020,9 +1020,167 @@ position: absolute;
     background-color: #9E0051;
 }
 
-
 /* PRODUCTO DETALLE FIN*/
 
+/*CARRITO*/
+
+
+#carrito-de-compras-main{
+    width: 90%;
+    margin-top: 4.7em;
+    padding-top: 0.7em;
+    padding-bottom: 7.95em;
+    background-color: #FDFDFD;
+}
+
+#titulo-carrito {
+    text-align: left;
+    margin-top: 1em;
+}
+
+.carrito-section2{
+    background-color: #DCDDE4;
+    border-radius: 5px;
+    text-align: center;
+    padding: 2em;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+#descuentoForm {
+    margin: 0.6em auto;
+}
+.summary-list {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.summary-list li {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#botonFinalizarCompra {
+    background-color: #212125;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 5px;
+}
+#boton-descuento {
+    background-color: #212125;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    
+}
+#pregunta-cupon {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+#input-cupon {
+    padding: 0.4em 0em;
+    border: none;
+    background-color: #FDFDFD; 
+    border-radius: 5px;
+    width: 30%;
+}
+#botonFinalizarCompra:hover{
+    background-color:#9E0051 ;
+}
+
+.lineaDivisora {
+    width:85%;
+    background-color:#6f6f72;
+    border-radius: 5px;
+    height: 0.07em;
+    margin: 2rem auto;
+}
+
+#lista-productos-carrito{
+    list-style-type: none;
+    padding: 1.5em 0px;
+    border-radius: 5px;
+    margin-top:1em;
+}
+
+li.productoCarrito{
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom:2.2em;
+}
+.precioObra {
+    text-align: right;
+    margin-bottom: 0.1em;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+.nombreArtista {
+    margin-bottom: 0.2em;
+    margin-top:0.3em;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.nombreObra {
+    margin-bottom: 0.2em;
+    margin-top:0.3em;
+    font-weight: 600;
+}
+.detalles-producto-carrito {
+    width:65%;
+    margin-left:2em;
+    position: relative;
+}
+
+#boton-cruz {
+    border: none;
+    font-size: 1.2rem;
+    color: #212125;
+    position: absolute;
+    top: 0px;
+    right:0px;
+}
+
+.contenedor-img-carrito {
+    width: 100px;
+    margin-left: 2em;
+    background-color: rgb(204, 187, 185);
+}
+
+.imagen-carrito-producto {
+    width:100%;
+    box-shadow: 2.6px 5.3px 5.3px hsl(0deg 0% 0% / 0.22);
+}
+
+.flecha-icon {
+    font-size: 1.3em;
+    margin-right: 1em;
+    transition: all 340ms;
+}
+
+.flecha-icon:hover {
+    font-size: 2em;
+}
+
+#form-direccion {
+    margin-bottom: 3em;
+    text-align: center;
+}
+
+#enlace-continuar-comprando {
+    text-decoration: none;
+    display: flex;
+}
+ /* FIN CARRITO */
 
 .perfil-usuario-caja {
     width:80%;
@@ -1072,24 +1230,6 @@ position: absolute;
     opacity: 100%;
 }
 
-
-
-/* .galeria{          esto lo que habia hecho agustin, no borrar por ahora
-    max-width: 1280px;
-    position: relative;
-    background-color: #ffffff;
-    display: grid;
-    grid-template-columns: 85%;
-    grid-template-rows: masonry;
-    justify-content: space-around;
-    gap: 15px;
-    width: 95vw;
-    margin-top: 4em;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 4em;
-    text-decoration-line: none;
-} */
 
 .galeria-producto-articulo{
     margin-top: 1.5em;
@@ -1281,10 +1421,6 @@ position: absolute;
         column-count: 2;
     }
 
-    /* .galeria{  lo de agustin no borrar por ahora
-        grid-template-columns: auto auto;
-        gap: 20px;
-    } */
 
     .galeria-producto-articulo{
         margin-top: 2em;
@@ -1315,6 +1451,17 @@ position: absolute;
 
     .carrousel-texto {
         top: 35%;
+    }
+
+    /*carrito */
+    .main-flex-compras{
+        display: flex;
+    }
+    .carrito-section1{
+        width:60%;
+    }
+    .carrito-section2 {
+        width: 40%;
     }
 
     /*media queries formularios*/
@@ -1486,10 +1633,6 @@ position: absolute;
      display: none;
      }
    
-    /* .galeria{    agustin no borrar por ahora
-        grid-template-columns: auto auto auto;
-        gap: 30px;
-        } */
     
     .galeria-masonry {
         column-count: 3;

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <%- include('partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/carrito.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -12,103 +12,80 @@
     </header>
 
     <main id="carrito-de-compras-main">
-        <div id="formulario-totalCompra2">
-            <form action="/descuento" method="POST" id="descuentoForm" >
-                <p id="texto-boton-descuento2">
-                <label>¿Tienes un cupón de descuento o Gift Card?</label>
-                </p>
-                <p id="contenedor-text-cupon2">
-                    <input type="text" name="descuento" id="cupon2">
-                </p>
-                <p>
-                <button type="submit" id="boton-descuento2" class="parrafos">Ingresá el código</button>
-                </p>
-            </form>
-        </div>
-        <h1 id="titulo-carrito" class="titulares-principales">Carrito de Compras</h1>
+        <h1 id="titulo-carrito" class="titulares-principales">Carrito</h1>
+        
         <div class="main-flex-compras">
-            <section class="compra1">
-            <div class="productoCarrito">
-                <div>
-                    <img class="imagen" src="/img/detalle-pintura.jpg">
-                </div>
-                <div class= "nombre-obra-artista">
-                    <p class="nombreObra parrafos">Nombre de la obra</p>
-                    <p class="artista parrafos">Artista</p>
-                    
-                </div>
+
+            <section class="carrito-section1">
+                <ul id="lista-productos-carrito">
+                    <li class="productoCarrito">
+                            <div class="contenedor-img-carrito">
+                                <img class="imagen-carrito-producto" src="/img/obra-arte14.jpg">
+                            </div>
+                            <div class="detalles-producto-carrito">
+                                <p class="nombreObra parrafos">Nombre de la obra</p>
+                                <i class="fas fa-times" id="boton-cruz"></i>
+                                <p class="nombreArtista parrafos">Artista</p>
+                                <p class="precioObra parrafos">$3000</p>
+                            </div>
+                    </li>
+                </ul>
                 
-                <div class="precio-boton">
-                    <button type="submit" id="boton"><i class="fas fa-times"></i></button>
-                    <p class="precio parrafos">$3000</p>
-                </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div id="seleccion">
-                <form action="/pais" method="POST">
-                    <label class="parrafos">Dirección de Envío</label>
-                    <select id="country" name="pais">
-                    <option value="1">Argentina</option>
-                    <option value="2">Uruguay</option>
-                    
-                    </select>
+               
+                <form action="/pais" method="POST" id="form-direccion">
+                        <label class="parrafos">Dirección de Envío</label>
+                        <select id="country" name="pais">
+                        <option value="1">Argentina</option>
+                        <option value="2">Uruguay</option>
+                        </select>
                 </form>
-            </div>
-        </section>
-            <div id="linea"></div>
-            <section class="compra2">
-                <div id="formulario-totalCompra">
-                    <form action="/descuento" method="POST" id="descuentoForm" >
-                        <p id="texto-boton-descuento" >
-                        <label>¿Tienes un cupón de descuento o Gift Card?</label>
-                        </p>
-                        <p id="contenedor-text-cupon">
-                            <input type="text" name="descuento" id="cupon">
-                        </p>
-                        <p>
-                        <button type="submit" id="boton-descuento" class="parrafos">Ingresá el código</button>
-                        </p>
-                    </form>
-                    
-                </div>
-                <div id="total-envio-precios">
-                    <div id="subt-envio-total">
-                        <p class="parrafos subt-costo">Subtotal</p>
-                        <p class="parrafos subt-costo">Costo de envío</p>
-                        <h3 class="titulo-total-compra titulares-terciarios">Total Compra:</h3>
-                    </div>
-                    <div id="subt-envio-total-precios">
-                        <p class="parrafos subt-costo">$3000</p>
-                        <p class="parrafos subt-costo">$600</p>
-                        <p class="parrafos titulo-total-compra">$3600</p>
-                    </div>
-                </div>
-                <br>
-                
-                <button id="continuarCompra" class="parrafos">Continuar</button>
-            </section>
-        </div>
-        
-        <div id="boton-finalizar-compra">
-            <button id="finalizarCompra"class="parrafos">Finalizar Compra</button>
-        </div>
-        
-        
-        <br>
-        <div id="anteFooter">
-            <a id="enlace-continuar-comprando" href="./index.html" class="seguir-comprando">
-                <i class="fas fa-arrow-left tamanoFlecha"></i>
-                    <p id="continuar" class="parrafos">Continuar comprando</p>
-                
-            </a>
-        <select id="ayuda">
-            <option> ¿Necesitas ayuda? </option>
             
-            </select>
+
+            </section>
+
+            <section class="carrito-section2">
+                
+                    <form action="/descuento" method="POST" id="descuentoForm" >
+                        
+                        <label id="pregunta-cupon">¿Tienes un cupón de descuento o Gift Card?</label> 
+                        <input type="text" name="descuento" id="input-cupon">
+                        <button type="submit" id="boton-descuento" class="parrafos">Agregar código</button>
+                     
+                    </form>
+                    <div class="lineaDivisora"></div>
+                    <ul class="summary-list">
+                        <li class="subtotal"> 
+                            <h5 class="titulares-terciarios">Subtotal:</h3>
+                            <p class="valor-num">$3000</p>
+                        </li>
+                        <li class="shipping-cost">
+                            <h5 class="titulares-terciarios">Costo de Envío:</h3>
+                            <p class="valor-num">$650</p>
+                        </li>
+                        <li class="total-compra">
+                            <h5 class="titulares-terciarios">Total Compra:</h3>
+                            <p class="valor-num">$3650</p>
+                        </li>
+
+                    </ul>
+
+                    <button id="botonFinalizarCompra" class="parrafos">Finalizar Compra</button>
+
+                </div>
+              
+                
+
+            </section>
+            
+        
+            <a id="enlace-continuar-comprando" href="/galeria">
+                <i class="fas fa-arrow-left flecha-icon"></i>
+                <p class="parrafos">Continuar comprando</p>
+            </a>
+    
         </div>
+        
+        
 
        <%- include('partials/caja-social') %>
 
@@ -117,8 +94,9 @@
     <footer>
     <%- include('partials/footer.ejs') %>
     </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <script src="/js/carrito.js"></script>
 
 </body>
 
