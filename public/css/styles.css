@@ -1024,6 +1024,9 @@ position: absolute;
 
 /*CARRITO*/
 
+.emptyCart {
+    text-align: center;
+}
 
 #carrito-de-compras-main{
     width: 90%;
@@ -1077,8 +1080,12 @@ position: absolute;
     border: none;
     border-radius: 5px;
     font-size: 0.9rem;
-    
+    transition: all 35ms;
 }
+#boton-descuento:hover {
+    background-color:#9E0051;
+}
+
 #pregunta-cupon {
     width: 100%;
     margin-bottom: 1rem;
@@ -1120,7 +1127,7 @@ li.productoCarrito{
     text-align: right;
     margin-bottom: 0.1em;
     position: absolute;
-    bottom: 0px;
+    bottom: 2px;
     right: 0px;
 }
 .nombreArtista {
@@ -1148,6 +1155,12 @@ li.productoCarrito{
     position: absolute;
     top: 0px;
     right:0px;
+    transition: all 45ms;
+}
+
+#boton-cruz:hover{
+    color:#CD9983;
+    cursor: pointer;
 }
 
 .contenedor-img-carrito {

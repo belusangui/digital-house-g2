@@ -1,10 +1,15 @@
+
+
 window.addEventListener('load', function (){ 
 
+    //captura variables
     let productosEnCarrito = localStorage.getItem('productosCarrito');
     let arrayCarrito = productosEnCarrito ? JSON.parse(productosEnCarrito) : [];
 
-
     let listaCarrito = document.getElementById('lista-productos-carrito');
+
+    let botonFinalizarCompra = document.getElementById('botonFinalizarCompra');
+
 
     if (arrayCarrito.length >= 1) {
 
@@ -29,7 +34,7 @@ window.addEventListener('load', function (){
             nombreObra.innerText = producto.nombre;
 
             let cruz = document.createElement('i');
-            cruz.classList.add('fas', 'fa-times');
+            cruz.classList.add('fas', 'fa-times', "boton-cruz");
             cruz.id = "boton-cruz";
 
             let nombreArtista = document.createElement('p');
@@ -54,8 +59,47 @@ window.addEventListener('load', function (){
         })
  
     } else {
-        alert('Your cart is empty')
+        let newLi = document.createElement('li');
+        newLi.classList.add('emptyCart', 'titulares-secundarios');
+        newLi.innerText = "Carrito Vacío!!";
+
+        listaCarrito.appendChild(newLi);
+      
     }
+
+    let botonesCruz = document.getElementsByClassName('boton-cruz');
+    
+    
+    for (i = 0; i < botonesCruz.length; i++) {
+        
+        botonesCruz[i].addEventListener('click', eliminarDeCarrito);
+
+        let nombreObraAEliminar = botonesCruz[i].previousSibling.innerText;
+
+        let liProductoAEliminar = (botonesCruz[i].parentElement).parentElement;
+
+        function eliminarDeCarrito () {
+            
+            liProductoAEliminar.style.display = "none";
+
+            let carritoActualizado = arrayCarrito.filter(producto => producto.nombre != nombreObraAEliminar);
+    
+            localStorage.setItem('productosCarrito', JSON.stringify(carritoActualizado));
+
+        }
+    
+    }
+
+    botonFinalizarCompra.addEventListener('click', finalizarCompra);
+
+    function finalizarCompra (e) {
+        e.preventDefault();
+
+        localStorage.removeItem('productosCarrito');
+
+        window.location.replace('/galeria');
+    }
+    
 
     
 });
