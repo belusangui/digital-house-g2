@@ -91,6 +91,8 @@ window.addEventListener('load', function (){
 
             carritoCount.innerText = carritoActualizado.length;
 
+            window.location.reload();
+
         }
     
     }
@@ -104,7 +106,32 @@ window.addEventListener('load', function (){
 
         window.location.replace('/galeria');
     }
+
+    function SumatoriasCarrito () {
+        let preciosObras = document.getElementsByClassName('precioObra');
+
+        let subtotal = 0;
+
+        for (precio of preciosObras) {
+            let p = precio.innerText.replace('$', '');
+            subtotal += parseInt(p);
+        }
+        
+        let subtotalElement = document.getElementById('subtotal-carrito');
+
+        subtotalElement.innerText = ("$ " + subtotal);
+
+        let envio = document.getElementById('envio-carrito');
+        let precioEnvio = parseInt(envio.innerText.replace('$', ''));
+
+        let total = subtotal + precioEnvio;
+
+        let totalElement = document.getElementById('total-carrito');
+        totalElement.innerText = ("$ " + total);
+    }
+
+    SumatoriasCarrito();
+    
     
 
-    
 });
