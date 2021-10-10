@@ -86,6 +86,10 @@ window.addEventListener('load', function (){
     
             localStorage.setItem('productosCarrito', JSON.stringify(carritoActualizado));
 
+            let carritoCount = document.getElementById('carrito-count');
+
+            carritoCount.innerText = carritoActualizado.length;
+
         }
     
     }

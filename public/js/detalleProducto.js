@@ -11,7 +11,6 @@ let rutaAbsolutaImg = document.getElementById('imagen-producto').src;
 let rutaRelativaImg = rutaAbsolutaImg.replace('http://localhost:3000','');
 let idProducto = location.pathname.replace('/galeria/detalle_producto/','');
 
-
 // objeto product a guardar en carrito
 let producto = {
     id: idProducto,
@@ -40,6 +39,12 @@ function agregarAlCarrito (e) {
 
     localStorage.setItem('productosCarrito', JSON.stringify(listaCarrito));
 
+    let carritoCount = document.getElementById('carrito-count');
+
+    carritoCount.innerText = listaCarrito.length;
+
 }
+
+
 
 })
