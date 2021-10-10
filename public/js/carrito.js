@@ -13,6 +13,7 @@ window.addEventListener('load', function (){
 
     if (arrayCarrito.length >= 1) {
 
+
         arrayCarrito.forEach(function(producto){
 
             let newLi = document.createElement('li');
@@ -59,12 +60,12 @@ window.addEventListener('load', function (){
         })
  
     } else {
-        let newLi = document.createElement('li');
-        newLi.classList.add('emptyCart', 'titulares-secundarios');
-        newLi.innerText = "Carrito Vacío!!";
 
-        listaCarrito.appendChild(newLi);
-      
+        let newLiCarritoVacio = document.createElement('li');
+        newLiCarritoVacio.classList.add('emptyCart', 'titulares-terciarios');
+        newLiCarritoVacio.innerText = "Tu carrito esta vacío!"
+        listaCarrito.appendChild(newLiCarritoVacio);
+
     }
 
     let botonesCruz = document.getElementsByClassName('boton-cruz');

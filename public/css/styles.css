@@ -114,7 +114,7 @@ Marron claro logo: #CD9983
     position: absolute;
     font-weight: 600;
     top: 35px;
-    right: 28px;
+    right: 18px;
     width: 22px;
     height: 22px;
     border-radius: 50%;
@@ -1040,6 +1040,13 @@ position: absolute;
 
 .emptyCart {
     text-align: center;
+    padding: 3em 0;
+    background-color:#F5F5F7;
+    color: #212125;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
 }
 
 #carrito-de-compras-main{
@@ -1063,6 +1070,7 @@ position: absolute;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    margin-bottom: 2.5em;
 }
 #descuentoForm {
     margin: 0.6em auto;
@@ -1474,6 +1482,10 @@ li.productoCarrito{
         width: 70%;
     }
 
+    #carrito-count {
+        right: 28px;
+    }
+
     /*carrousel*/
 
     .carrousel-texto {
@@ -1483,12 +1495,14 @@ li.productoCarrito{
     /*carrito */
     .main-flex-compras{
         display: flex;
+        justify-content: space-evenly;
     }
     .carrito-section1{
-        width:60%;
+        width:50%;
     }
     .carrito-section2 {
         width: 40%;
+        margin-bottom: 1.5em;
     }
 
     /*media queries formularios*/
