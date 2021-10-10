@@ -2,7 +2,7 @@
 /* Paleta colores.
 
 Gris claro #F5F5F7 rgb(245,245,247)
-Gris un poco mas oscuro #F5F5F7
+Gris un poco mas oscuro #cdcdce
 Fucsia #9E0051
 Rosa viejo ##9b5d64
 Bordeaux ##6d0e0d
@@ -285,9 +285,22 @@ transition: color 45ms;
 }
 
 #logo-footer-img{
-    margin-left: 35%;
-    width: 30%;
-    margin-top: -60px;
+    width: 100px;
+    text-align: right; 
+}
+
+#copyright-text {
+    color: #cdcdce;
+    text-align: center;
+}
+
+#logo-copyright {
+ display: flex;
+ width: 100%;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: center;
+ padding: 0.7em 3em;
 }
 
 /*Fin del codigo del Footer*/
@@ -1346,6 +1359,10 @@ li.productoCarrito{
 @media (min-width: 480px) {
 
     /*tablets y larger smartphones*/
+
+    #logo-copyright {
+        flex-direction: row-reverse;
+    }
 
     .carrousel-texto {
         top: 30%;
