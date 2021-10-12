@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const authMiddleware = require('../middlewares/authMiddleware');
 const artistMiddleware = require('../middlewares/artistMiddleware');
+const artistAuthMiddleware = require('../middlewares/artistAuthMiddleware');
 const {body} = require('express-validator');
 const productosController = require('../controllers/productosController');
 
@@ -54,7 +55,7 @@ router.get ('/', productosController.galeria);
 
 router.get ('/detalle_producto/:id', productosController.detail);
 
-router.get ('/crear_producto', authMiddleware, artistMiddleware, productosController.createProduct);
+router.get ('/crear_producto', artistAuthMiddleware, artistMiddleware, productosController.createProduct);
 
 router.post ('/crear_producto', uploadFile.single('fotos'),validateCreation, productosController.storeProduct);
 

@@ -790,11 +790,11 @@ position: absolute;
     font-size: 0.9rem;
     line-height: 1rem;
     font-weight: 600;
-    color:rgb(109, 14, 13);
+    color:rgb(192, 20, 17);
 }
 
 .is-invalid {
-    border: 1px solid rgb(109, 14, 13);
+    border: 2px solid rgb(192, 20, 17);
 }
 
 /* PRODUCTO CREAR */
