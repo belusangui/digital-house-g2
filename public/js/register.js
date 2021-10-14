@@ -20,77 +20,36 @@ let mensajeError = document.createElement('p');
 mensajeError.className = "error-message";
 mensajeError.style.display = "none";
 
+let mensajeErrorEmail = document.createElement('p');
+mensajeErrorEmail.className = "error-message";
+mensajeErrorEmail.style.display = "none";
 
+let mensajeErrorPass = document.createElement('p');
+mensajeErrorPass.className = "error-message";
+mensajeErrorPass.style.display = "none";
 
-form.addEventListener('submit', validarRegistro);
+let mensajeErrorCheck = document.createElement('p');
+mensajeErrorCheck.className = "error-message";
+mensajeErrorCheck.style.display = "none";
 
+let mensajeErrorNombre = document.createElement('p');
+mensajeErrorNombre.className = "error-message";
+mensajeErrorNombre.style.display = "none";
 
-function validarRegistro(e){
+let mensajeErrorDireccion = document.createElement('p');
+mensajeErrorDireccion.className = "error-message";
+mensajeErrorDireccion.style.display = "none";
 
-e.preventDefault();
+let mensajeErrorFecha = document.createElement('p');
+mensajeErrorFecha.className = "error-message";
+mensajeErrorFecha.style.display = "none";
 
-let email = document.getElementById('register-email');
-let password = document.getElementById('register-password');
-let password2 = document.getElementById('register-password2');
-let nombre = document.getElementById('register-fullname');
-let direccion = document.getElementById('register-address');
-let nacimiento = document.getElementById('register-birthday');
-
-let atPosition = email.value.indexOf('@');
-let dotPosition = email.value.lastIndexOf('.');
-
-
-if(nombre.value.length < 4){
-
-    sectionName.appendChild(mensajeError);
-    nombre.classList.add('is-invalid');
-    mensajeError.innerText = "Completar con un nombre valido";
-    mensajeError.style.display = "block";
-
-}else if(direccion.value.length < 4){
-
-    sectionAddress.appendChild(mensajeError);
-    direccion.classList.add('is-invalid');
-    mensajeError.innerText = "Completar con una direccion valida";
-    mensajeError.style.display = "block";
-
-}else if(atPosition < 1 || dotPosition < (atPosition+2) || dotPosition+2 >= email.length ) {
-
-    sectionEmail.appendChild(mensajeError);
-    email.classList.add('is-invalid');
-    mensajeError.innerText = "Email invalido";
-    mensajeError.style.display = "block";
-
-}else if(password.value.length < 5){
-
-    passwordInput.appendChild(mensajeError);
-    password.classList.add('is-invalid');
-    mensajeError.innerText = "Contraseña invalida";
-    mensajeError.style.display = "block";
-
-}else if (password.value != password2.value){
-
-    passwordCheckInput.appendChild(mensajeError);
-    password2.classList.add('is-invalid');
-    mensajeError.innerText = "Las contraseñas no coinciden";
-    mensajeError.style.display = "block";
-
-}else if(nacimiento.value == 0000-00-00){
-
-    sectionBirthday.appendChild(mensajeError);
-    nacimiento.classList.add('is-invalid');
-    mensajeError.innerText = "Completar con una fecha valida";
-    mensajeError.style.display = "block";
-
-}else{
-    form.submit();
-}
-}
 
 
 let email = document.getElementById('register-email');
 
 email.addEventListener('change', validarEmail);
+form.addEventListener('submit', validarEmail)
 
 function validarEmail(e){
 
@@ -100,13 +59,13 @@ function validarEmail(e){
 
     if(atPosition < 1 || dotPosition < (atPosition+2) || dotPosition+2 >= email.length ) {
 
-        sectionEmail.appendChild(mensajeError);
+        sectionEmail.appendChild(mensajeErrorEmail);
         email.classList.add('is-invalid');
-        mensajeError.innerText = "Email invalido";
-        mensajeError.style.display = "block";
+        mensajeErrorEmail.innerText = "Email invalido";
+        mensajeErrorEmail.style.display = "block";
     
     }else{
-        mensajeError.style.display = "none";
+        mensajeErrorEmail.style.display = "none";
         email.classList.remove('is-invalid');
     }
 }
@@ -115,18 +74,19 @@ function validarEmail(e){
 let password = document.getElementById('register-password');
 
 password.addEventListener('keypress', validarPass);
+form.addEventListener('submit', validarPass)
 
 function validarPass(e){
 
     if(password.value.length < 5){
 
-        passwordInput.appendChild(mensajeError);
+        passwordInput.appendChild(mensajeErrorPass);
         password.classList.add('is-invalid');
-        mensajeError.innerText = "Contraseña invalida";
-        mensajeError.style.display = "block";
+        mensajeErrorPass.innerText = "Contraseña invalida";
+        mensajeErrorPass.style.display = "block";
     
     }else{
-        mensajeError.style.display = "none";
+        mensajeErrorPass.style.display = "none";
         password.classList.remove('is-invalid');
     }
 }
@@ -135,17 +95,18 @@ function validarPass(e){
 let password2 = document.getElementById('register-password2');
 
 password2.addEventListener('blur', checkPass);
+form.addEventListener('submit', checkPass)
 
 function checkPass(e){
 
     if (password.value != password2.value){
 
-        passwordCheckInput.appendChild(mensajeError);
+        passwordCheckInput.appendChild(mensajeErrorCheck);
         password2.classList.add('is-invalid');
-        mensajeError.innerText = "Las contraseñas no coinciden";
-        mensajeError.style.display = "block";
+        mensajeErrorCheck.innerText = "Las contraseñas no coinciden";
+        mensajeErrorCheck.style.display = "block";
      }else{
-        mensajeError.style.display = "none";
+        mensajeErrorCheck.style.display = "none";
         password2.classList.remove('is-invalid');
      }
     }
@@ -154,17 +115,18 @@ function checkPass(e){
 let nombre = document.getElementById('register-fullname');
 
 nombre.addEventListener('change', validarNombre);
+form.addEventListener('submit', validarNombre)
 
 function validarNombre(e){
 
         if(nombre.value.length < 4){
 
-            sectionName.appendChild(mensajeError);
+            sectionName.appendChild(mensajeErrorNombre);
             nombre.classList.add('is-invalid');
-            mensajeError.innerText = "Completar con un nombre valido";
-            mensajeError.style.display = "block";
+            mensajeErrorNombre.innerText = "Completar con un nombre valido";
+            mensajeErrorNombre.style.display = "block";
         }else{
-            mensajeError.style.display = "none";
+            mensajeErrorNombre.style.display = "none";
             nombre.classList.remove('is-invalid');
         }
     }
@@ -173,18 +135,19 @@ function validarNombre(e){
 let direccion = document.getElementById('register-address');
 
 direccion.addEventListener('change', validarDireccion);
+form.addEventListener('submit', validarDireccion)
 
 function validarDireccion(e){
 
     if(direccion.value.length < 4){
 
-        sectionAddress.appendChild(mensajeError);
+        sectionAddress.appendChild(mensajeErrorDireccion);
         direccion.classList.add('is-invalid');
-        mensajeError.innerText = "Completar con una direccion valida";
-        mensajeError.style.display = "block";
+        mensajeErrorDireccion.innerText = "Completar con una direccion valida";
+        mensajeErrorDireccion.style.display = "block";
     
     }else{
-        mensajeError.style.display = "none";
+        mensajeErrorDireccion.style.display = "none";
         direccion.classList.remove('is-invalid');
     }
 
@@ -193,19 +156,20 @@ function validarDireccion(e){
 
 let nacimiento = document.getElementById('register-birthday');
 
-nacimiento.addEventListener('change', validarFecha);
+nacimiento.addEventListener('change', validarFecha)
+form.addEventListener('submit', validarFecha);
 
 function validarFecha(e){
 
     if(nacimiento.value == 0000-00-00){
-
-        sectionBirthday.appendChild(mensajeError);
+     e.preventDefault();
+        sectionBirthday.appendChild(mensajeErrorFecha);
         nacimiento.classList.add('is-invalid');
-        mensajeError.innerText = "Completar con una fecha valida";
-        mensajeError.style.display = "block";
+        mensajeErrorFecha.innerText = "Completar con una fecha valida";
+        mensajeErrorFecha.style.display = "block";
     
     }else{
-        mensajeError.style.display = "none";
+        mensajeErrorFecha.style.display = "none";
         nacimiento.classList.remove('is-invalid');
     }
 }
