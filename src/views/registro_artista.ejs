@@ -17,66 +17,66 @@
                 <h2 class="titulares-secundarios">Completá tus datos.</h2>
             
                     <form action="/artist/crear_artista" id="register-form" method="POST"  enctype="multipart/form-data">
-                    <div class="form-section">
-                        <input type="text" name="nombre" class="login-field <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" placeholder="Nombre y Apellido" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
+                    <div class="form-section" id="section-fullname-art">
+                        <input type="text" name="nombre" id="artist-fullname" class="login-field <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" placeholder="Nombre y Apellido" value="<%= locals.old && old.nombre ? old.nombre : '' %>">
                         <% if (locals.errors && errors.nombre) { %>
                             <p class="error-message"><%=errors.nombre.msg%></p>
                         <% } %>
                     </div>
-                    <div class="form-section">
-                        <input type="text" name="titular" class="login-field <%= locals.errors && errors.titular ? 'is-invalid' : null %>" placeholder="Titular" value="<%= locals.old && old.titular ? old.titular : '' %>">
+                    <div class="form-section" id="section-headline">
+                        <input type="text" name="titular" id="artist-headline" class="login-field <%= locals.errors && errors.titular ? 'is-invalid' : null %>" placeholder="Titular" value="<%= locals.old && old.titular ? old.titular : '' %>">
                         <% if (locals.errors && errors.titular) { %>
                             <p class="error-message"><%=errors.titular.msg%></p>
                         <% } %>
                     </div>
-                    <div class="form-section">
-                        <input type="text" name="username" class="login-field <%= locals.errors && errors.username ? 'is-invalid' : null %>" placeholder="Nombre de Usuario" value="<%= locals.old && old.username ? old.username : '' %>">
+                    <div class="form-section" id="section-username">
+                        <input type="text" name="username" id="artist-username" class="login-field <%= locals.errors && errors.username ? 'is-invalid' : null %>" placeholder="Nombre de Usuario" value="<%= locals.old && old.username ? old.username : '' %>">
                         <% if (locals.errors && errors.username) { %>
                             <p class="error-message"><%=errors.username.msg%></p>
                         <% } %>
                     </div>
-                    <div class="form-section">
+                    <div class="form-section" id="section-bio">
                         <label for="biografia">Biografía</label>
-                        <textarea name="biografia" class="login-field <%= locals.errors && errors.biografia ? 'is-invalid' : null %>" placeholder="Ej: Curriculum vitae, formación, exposiciones, premios"></textarea>
+                        <textarea name="biografia" id="artist-bio" class="login-field <%= locals.errors && errors.biografia ? 'is-invalid' : null %>" placeholder="Ej: Curriculum vitae, formación, exposiciones, premios"></textarea>
                         <!-- "<%= locals.old && old.biografia ? old.biografia : '' %>" -->
                         <% if (locals.errors && errors.biografia) { %>
                             <p class="error-message"><%=errors.biografia.msg%></p>
                         <% } %>
                     </div>
-                    <div class="form-section">
-                        <input type="text" name="domicilio" class="login-field <%= locals.errors && errors.domicilio ? 'is-invalid' : null %>" placeholder="Domicilio" value="<%= locals.old && old.domicilio ? old.domicilio : '' %>">
+                    <div class="form-section" id="section-address-art">
+                        <input type="text" name="domicilio" id="artist-address" class="login-field <%= locals.errors && errors.domicilio ? 'is-invalid' : null %>" placeholder="Domicilio" value="<%= locals.old && old.domicilio ? old.domicilio : '' %>">
                         <% if (locals.errors && errors.domicilio) { %>
                             <p class="error-message"><%=errors.domicilio.msg%></p>
                         <% } %>
                     </div>
-                    <div class="form-section">
-                        <input type="email" name="email" class="login-field <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="Email" value="<%= locals.old && old.email ? old.email : '' %>">
+                    <div class="form-section" id="section-email-art">
+                        <input type="email" name="email" id="artist-email" class="login-field <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="Email" value="<%= locals.old && old.email ? old.email : '' %>">
                         <% if (locals.errors && errors.email) { %>
                             <p class="error-message"><%=errors.email.msg%></p>
                         <% } %>
                     </div>
-                    <div class="form-section">
-                        <input type="password" name="password" class="login-field <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="Contraseña">
+                    <div class="form-section" id="section-pass-art">
+                        <input type="password" name="password" id="artist-password" class="login-field <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="Contraseña">
                         <% if (locals.errors && errors.password) { %>
                             <p class="error-message"><%=errors.password.msg%></p>
                         <% } %>
                     </div>
-                    <div class="form-section">
-                        <input type="password" name="password2" class="login-field <%= locals.errors && errors.password2 ? 'is-invalid' : null %>" placeholder="Confirmar contraseña">
+                    <div class="form-section" id="section-pass2-art">
+                        <input type="password" name="password2" id="artist-password2" class="login-field <%= locals.errors && errors.password2 ? 'is-invalid' : null %>" placeholder="Confirmar contraseña">
                         <% if (locals.errors && errors.password2) { %>
                             <p class="error-message"><%=errors.password2.msg%></p>
                         <% } %>
                     </div>
-                    <div class="form-section">
+                    <div class="form-section" id="section-birth-art">
                         <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                        <input type="date" name="fecha_nacimiento" class="login-field <%= locals.errors && errors.fecha_nacimiento ? 'is-invalid' : null %>" placeholder="Confirmar contraseña">
+                        <input type="date" name="fecha_nacimiento" id="artist-birthday" class="login-field <%= locals.errors && errors.fecha_nacimiento ? 'is-invalid' : null %>" placeholder="Confirmar contraseña">
                         <% if (locals.errors && errors.fecha_nacimiento) { %>
                             <p class="error-message"><%=errors.fecha_nacimiento.msg%></p>
                         <% } %>
                     </div>
-                    <div class="form-section">
+                    <div class="form-section" id="section-avatar-art">
                         <label for="avatar">Foto de perfil</label>
-                        <input type="file" name="avatar" class="login-field" >
+                        <input type="file" name="avatar" id="artist-avatar" class="login-field" >
                     
                     </div>
                     
@@ -95,6 +95,7 @@
         <%- include('partials/footer') %>
     </footer>
 
+    <script src="/js/registerArtista.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

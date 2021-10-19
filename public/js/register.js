@@ -57,7 +57,7 @@ function validarEmail(e){
     let dotPosition = email.value.lastIndexOf('.');
     
 
-    if(atPosition < 1 || dotPosition < (atPosition+2) || dotPosition+2 >= email.length ) {
+    if(atPosition < 1 || dotPosition < (atPosition+2) || dotPosition+2 >= email.value.length ) {
 
         sectionEmail.appendChild(mensajeErrorEmail);
         email.classList.add('is-invalid');
