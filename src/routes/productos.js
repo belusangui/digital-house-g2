@@ -24,7 +24,6 @@ const uploadFile = multer({ storage: multerDiskStorage });
 
 const validateCreation = [
     body('nombre').notEmpty().withMessage('Debes completar el nombre de la obra.'),
-    body('artista').notEmpty().withMessage('Debes ingresar el nombre del artista.'),
     body('year').notEmpty().withMessage('Debes ingresar el año de creación de la obra.'),
     body('medio').notEmpty().withMessage('Debes ingresar una categoría de la obra.'),
     body('categoria').notEmpty().withMessage('Debes ingresar una categoría de la obra.'),

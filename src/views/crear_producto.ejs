@@ -24,14 +24,6 @@
                         <p class="error-message"><%=errors.nombre.msg%></p>
                     <% } %> 
                 </div>
-
-                <div class="crear-producto" id = "sectionNombreArtista">
-                    <label for="artista">Artista</label>
-                    <input type="text" name="artista" id="nombreArtista" class="crear-producto-field <%= locals.errors && errors.artista ? 'is-invalid' : null %>"  value="<%= locals.old && old.artista ? old.artista : '' %>">
-                    <% if (locals.errors && errors.artista) { %>
-                        <p class="error-message"><%=errors.artista.msg%></p>
-                    <% } %> 
-                </div>
                 
                 <div class="crear-producto" id = "sectionFechaCreacion">
                     <label for="fecha-creacion">Año de Creación</label>

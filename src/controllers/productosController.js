@@ -7,7 +7,7 @@ const db = require('../database/models');
 let controller = {
 
     galeria: (req, res)=>{
-        
+
         db.Producto.findAll({include: [ {association: 'artistas'}]})
         .then(function(dataproducts){
             res.render('galeria', {productos: dataproducts})
@@ -39,15 +39,16 @@ let controller = {
             .then(function([dataCategorias, dataMedios]){
                 res.render('crear_producto',{categorias: dataCategorias, medios: dataMedios });
             })
-        
+
     },
-    
+
     storeProduct: (req, res) => {
         let errors = validationResult(req);
-        
+
         if(errors.errors.length == 0){
+
             let nombreImagen = req.file.filename;
-       
+
             let idArtista = req.session.userLogged.id;
 
             let productoNuevo = {
@@ -64,7 +65,7 @@ let controller = {
                         anio_creacion: req.body.year,
                         img: nombreImagen
                 };
-            
+
             db.Producto.create(productoNuevo).then(function(resultado) {
                 res.redirect('/galeria');
             })
@@ -82,9 +83,9 @@ let controller = {
                 .then(function([dataCategorias, dataMedios]){
                     res.render('crear_producto',{categorias: dataCategorias, medios: dataMedios, errors: errors.mapped(), old: req.body });
                 })
-            
+
         }
-        
+
     },
 
     editProduct: (req, res) => {
@@ -102,7 +103,7 @@ let controller = {
         let id = req.params.id;
 
         let obra = db.Producto.findByPk(id).then(function(obraData){
-            return obraData; 
+            return obraData;
         })
 
         Promise.all([allCategorias, allMedios, obra])

@@ -4,79 +4,70 @@ window.addEventListener('load', function (){
 let form = document.getElementById('crear-producto-form');
 
 let section_nombre_obra = document.getElementById('sectionNombreObra');
-let section_nombre_artista = document.getElementById('sectionNombreArtista');
 let section_fecha_creacion = document.getElementById('sectionFechaCreacion');
-//let section_ancho = document.getElementById('sectionAncho');
-//let section_alto = document.getElementById('sectionAlto');
 let section_descripcion_obra = document.getElementById('sectionDescripcionObra');
 let section_otros_detalles = document.getElementById('sectionOtrosDetalles');
-//let section_precio_obra = document.getElementById('sectionPrecioObra');
 
-let mensajeError = document.createElement('p');
-mensajeError.className = "error-message";
-mensajeError.style.display = "none";
+let mensajeErrorNombre = document.createElement('p');
+mensajeErrorNombre.className = "error-message";
+mensajeErrorNombre.style.display = "none";
 
+let mensajeErrorAnio = document.createElement('p');
+mensajeErrorAnio.className = "error-message";
+mensajeErrorAnio.style.display = "none";
+
+let mensajeErrorDescripcion = document.createElement('p');
+mensajeErrorDescripcion.className = "error-message";
+mensajeErrorDescripcion.style.display = "none";
+
+let mensajeErrorOtrosDetalles = document.createElement('p');
+mensajeErrorOtrosDetalles.className = "error-message";
+mensajeErrorOtrosDetalles.style.display = "none";
 
 
 let nombre_obra = document.getElementById('nombreObra');
 
 nombre_obra.addEventListener('keydown', validarNombreObra);
 
+
 function validarNombreObra(e){
 
-    if(nombre_obra.value.length < 3){
+    if(nombre_obra.value.length < 2){
 
-        section_nombre_obra.appendChild(mensajeError);
+        section_nombre_obra.appendChild(mensajeErrorNombre);
         nombre_obra.classList.add('is-invalid');
-        mensajeError.innerText = "El nombre debe tener al menos tres caracteres";
-        mensajeError.style.display = "block";
+        mensajeErrorNombre.innerText = "El nombre debe tener al menos tres caracteres";
+        mensajeErrorNombre.style.display = "block";
     
     }else{
-        mensajeError.style.display = "none";
+        mensajeErrorNombre.style.display = "none";
         nombre_obra.classList.remove('is-invalid');
     }
 }
 
+let fecha_creacion = document.getElementById('fechaDeCreacion');
 
-    let nombre_artista = document.getElementById('nombreArtista');
+fecha_creacion.addEventListener('change', validarFechaCreacion);
+    
+function validarFechaCreacion(e){
 
-    nombre_artista.addEventListener('keydown', validarNombreArtista);
-    
-    function validarNombreArtista(e){
-    
-        if(nombre_artista.value.length < 3){
-    
-            section_nombre_artista.appendChild(mensajeError);
-            nombre_artista.classList.add('is-invalid');
-            mensajeError.innerText = "Debe ingresar un nombre con un mínimo de tres caracteres";
-            mensajeError.style.display = "block";
-        
-        }else{
-            mensajeError.style.display = "none";
-            nombre_artista.classList.remove('is-invalid');
-        }
+        let anio = parseInt(fecha_creacion.value);
 
-    }
-
-    let fecha_creacion = document.getElementById('fechaDeCreacion');
-
-    fecha_creacion.addEventListener('keydown', validarFechaCreacion);
+        if( (isNaN(anio)) || anio <= 1200 || anio >= 9999){
     
-    function validarFechaCreacion(e){
-    
-        if(fecha_creacion.value.length != 3 && (fecha_creacion.value != 0 || fecha_creacion.value != 1 || fecha_creacion.value != 2 || fecha_creacion.value != 3 || fecha_creacion.value != 4 || fecha_creacion.value != 5 || fecha_creacion.value != 6 || fecha_creacion.value != 7 || fecha_creacion.value != 8 || fecha_creacion.value != 9) ){
-    
-            section_fecha_creacion.appendChild(mensajeError);
+            section_fecha_creacion.appendChild(mensajeErrorAnio);
             fecha_creacion.classList.add('is-invalid');
-            mensajeError.innerText = "Debe ingresar cuatro dígitos para el año de creación de la obra (sólo números).";
-            mensajeError.style.display = "block";
+            mensajeErrorAnio.innerText = "Debe ingresar cuatro dígitos para el año de creación de la obra (sólo números).";
+            mensajeErrorAnio.style.display = "block";
+
         
         }else{
-            mensajeError.style.display = "none";
+            mensajeErrorAnio.style.display = "none";
             fecha_creacion.classList.remove('is-invalid');
         }
 
-    }
+}
+
 let descripcion_obra = document.getElementById('descripcionObra');
 
 descripcion_obra.addEventListener('keydown', validarDescripcionObra);
@@ -85,13 +76,13 @@ function validarDescripcionObra(e){
 
     if(descripcion_obra.value.length < 16){
 
-        section_descripcion_obra.appendChild(mensajeError);
+        section_descripcion_obra.appendChild(mensajeErrorDescripcion);
         descripcion_obra.classList.add('is-invalid');
-        mensajeError.innerText = "La descripción debe tener al menos 15 caracteres";
-        mensajeError.style.display = "block";
+        mensajeErrorDescripcion.innerText = "La descripción debe tener al menos 15 caracteres";
+        mensajeErrorDescripcion.style.display = "block";
     
     }else{
-        mensajeError.style.display = "none";
+        mensajeErrorDescripcion.style.display = "none";
         descripcion_obra.classList.remove('is-invalid');
     }
 }
@@ -104,70 +95,17 @@ function validarOtrosDetalles(e){
 
     if(otros_detalles.value.length < 10){
 
-        section_otros_detalles.appendChild(mensajeError);
+        section_otros_detalles.appendChild(mensajeErrorOtrosDetalles);
         otros_detalles.classList.add('is-invalid');
-        mensajeError.innerText = "Los otros detalles deben tener al menos 10 caracteres";
-        mensajeError.style.display = "block";
+        mensajeErrorOtrosDetalles.innerText = "Los otros detalles deben tener al menos 10 caracteres";
+        mensajeErrorOtrosDetalles.style.display = "block";
     
     }else{
-        mensajeError.style.display = "none";
+        mensajeErrorOtrosDetalles.style.display = "none";
         otros_detalles.classList.remove('is-invalid');
     }
 }
 
-    form.addEventListener('submit', validarCreacionProducto);
-
-
-    function validarCreacionProducto(e){
-
-    let nombre_obra = document.getElementById('nombreObra');
-    let nombre_artista = document.getElementById('nombreArtista');
-    let fecha_creacion = document.getElementById('fechaDeCreacion');
-    let descripcion_obra = document.getElementById('descripcionObra');
-    let otros_detalles = document.getElementById('otrosDetallesObra');
-
-  
-        e.preventDefault();
-        if(nombre_obra.value.length < 3){
-
-            section_nombre_obra.appendChild(mensajeError);
-            nombre_obra.classList.add('is-invalid');
-            mensajeError.innerText = "El nombre debe tener al menos tres caracteres";
-            mensajeError.style.display = "block";
-        
-        }else if(nombre_artista.value.length < 3){
-    
-            section_nombre_artista.appendChild(mensajeError);
-            nombre_artista.classList.add('is-invalid');
-            mensajeError.innerText = "Debe ingresar un nombre con un mínimo de tres caracteres";
-            mensajeError.style.display = "block";
-        }else if (fecha_creacion.value.length < 3){
-    
-            section_fecha_creacion.appendChild(mensajeError);
-            fecha_creacion.classList.add('is-invalid');
-            mensajeError.innerText = "Debe ingresar cuatro dígitos para el año de creación de la obra (sólo números).";
-            mensajeError.style.display = "block";
-            
-        }else if (descripcion_obra.value.length < 16){
-
-            section_descripcion_obra.appendChild(mensajeError);
-            descripcion_obra.classList.add('is-invalid');
-            mensajeError.innerText = "La descripción debe tener al menos 15 caracteres";
-            mensajeError.style.display = "block";
-        
-        }else if(otros_detalles.value.length < 10){
-
-            section_otros_detalles.appendChild(mensajeError);
-            otros_detalles.classList.add('is-invalid');
-            mensajeError.innerText = "Los otros detalles deben tener al menos 10 caracteres";
-            mensajeError.style.display = "block";
-        
-        }else{
-            form.submit();
-        }
-        
-    
-    }
 })
     
 
