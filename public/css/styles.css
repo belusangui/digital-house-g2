@@ -787,17 +787,6 @@ position: absolute;
 
 }
 
-.error-message {
-    font-size: 0.9rem;
-    line-height: 1rem;
-    font-weight: 600;
-    color:rgb(192, 20, 17);
-}
-
-.is-invalid {
-    border: 2px solid rgb(192, 20, 17);
-}
-
 /* PRODUCTO CREAR */
 
 
@@ -829,7 +818,7 @@ position: absolute;
     width: 100%;
     padding-top: 0.4em;
     padding-bottom: 0.4em;
-    margin-bottom: 1.4em;
+    margin-bottom: 0.5em;
     color: #212125;
 }
 
@@ -1353,7 +1342,18 @@ li.productoCarrito{
     color: #9E0051;
 }
 
+/* Error class */
 
+.error-message {
+    font-size: 0.9rem;
+    line-height: 1rem;
+    font-weight: 600;
+    color:rgb(192, 20, 17);
+}
+
+input.is-invalid, textarea.is-invalid  {
+    border: 2px solid rgb(192, 20, 17);
+}
   
 /* MEDIA QUERIES */
 
