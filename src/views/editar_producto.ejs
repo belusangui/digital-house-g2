@@ -20,14 +20,20 @@
                 
                 <form action="/galeria/editar_producto/<%=obraAEditar.id%>?_method=PUT" id="crear-producto-form" method="POST" enctype="multipart/form-data">
                     
-                    <div class="crear-producto">
+                    <div class="crear-producto" id = "sectionNombreObra">
                         <label for="nombre">Nombre de la obra</label>
-                        <input value="<%=obraAEditar.nombre %>"type="text" name="nombre" class="crear-producto-field" required>
+                        <input value="<%=obraAEditar.nombre %>"type="text" name="nombre" id="nombreObra"  class="crear-producto-field <%= locals.errors && errors.nombre ? 'is-invalid' : null %>">
+                        <% if (locals.errors && errors.nombre) { %>
+                            <p class="error-message"><%=errors.nombre.msg%></p>
+                        <% } %> 
                     </div>
                     
-                    <div class="crear-producto">
+                    <div class="crear-producto"  id = "sectionFechaCreacion">
                         <label for="fecha-creacion">Año de Creación</label>
-                        <input value="<%=obraAEditar.anio_creacion %>" type="text" name="year" class="crear-producto-field"  required>
+                        <input value="<%=obraAEditar.anio_creacion %>" id= "fechaDeCreacion" type="text" name="year" class="crear-producto-field <%= locals.errors && errors.year ? 'is-invalid' : null %>"   >
+                        <% if (locals.errors && errors.year) { %>
+                            <p class="error-message"><%=errors.year.msg%></p>
+                        <% } %> 
                     </div>
      
                                    
@@ -60,26 +66,37 @@
                         
                         <h3 class="crear-producto-titulos-secuendarios">Dimensiones  <span>(centímetros)</span></h3>
                         
-                        <div class="crear-producto-dimensiones-obejeto">
+                        <div class="crear-producto-dimensiones-obejeto" id="sectionAncho">
                             <label for="ancho">ancho</label>
-                            <input value="<%=obraAEditar.ancho %>"type="number" name="ancho" class="crear-producto-field"  required>
+                            <input value="<%=obraAEditar.ancho %>"type="number" name="ancho" class="crear-producto-field <%= locals.errors && errors.ancho ? 'is-invalid' : null %>"  id="anchoObra">
+                            <% if (locals.errors && errors.ancho) { %>
+                                <p class="error-message"><%=errors.ancho.msg%></p>
+                            <% } %>  
                         </div>
-                        <div lass="crear-producto-dimensiones-obejeto">
+                        <div lass="crear-producto-dimensiones-obejeto" id="sectionAlto">
                             <label for="alto">alto</label>
-                            <input value="<%=obraAEditar.alto %>"type="number" name="alto" class="crear-producto-field"  required>
+                            <input value="<%=obraAEditar.alto %>"type="number" name="alto" class="crear-producto-field <%= locals.errors && errors.alto ? 'is-invalid' : null %>"  id="altoObra" >
+                            <% if (locals.errors && errors.alto) { %>
+                                <p class="error-message"><%=errors.alto.msg%></p>
+                            <% } %>  
                         </div>
                           
                     </div>
 
-                    <div class="crear-producto crear-producto-descripcion">
+                    <div class="crear-producto crear-producto-descripcion" id="sectionDescripcionObra">
                         <label for="descripcion">Descripción de la obra</label>
-                        <textarea name="descripcion" class="crear-producto-field"  required><%=obraAEditar.descripcion %></textarea>
-    
+                        <textarea name="descripcion" class="crear-producto-field <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>"  id="descripcionObra" ><%=obraAEditar.descripcion %></textarea>
+                        <% if (locals.errors && errors.descripcion) { %>
+                            <p class="error-message"><%=errors.descripcion.msg%></p>
+                        <% } %>
                     </div>
 
-                    <div class="crear-producto crear-producto-descripcion">
+                    <div class="crear-producto crear-producto-descripcion" id="sectionOtrosDetalles">
                         <label for="otros_detalles">Otros detalles</label>
-                        <textarea name="otros_detalles" class="crear-producto-field" placeholder="Ej: Enmarcado, soporte, peso" required><%=obraAEditar.otros_detalles %></textarea>
+                        <textarea name="otros_detalles" class="crear-producto-field <%= locals.errors && errors.otros_detalles ? 'is-invalid' : null %>" id="otrosDetallesObra" placeholder="Ej: Enmarcado, soporte, peso" ><%=obraAEditar.otros_detalles %></textarea>
+                        <% if (locals.errors && errors.otros_detalles) { %>
+                            <p class="error-message"><%=errors.otros_detalles.msg%></p>
+                        <% } %> 
     
                     </div>
     
@@ -88,12 +105,18 @@
                         <div class="form-contenedor-imagen">
                             <img src="/img/<%=obraAEditar.img %>">
                         </div>
-                        <input  type="file" name="fotos" class="crear-producto-field"  required>
+                        <input  type="file" name="fotos" class="crear-producto-field <%= locals.errors && errors.fotos ? 'is-invalid' : null %>">
+                        <% if (locals.errors && errors.fotos) { %>
+                            <p class="error-message"><%=errors.fotos.msg%></p>
+                        <% } %>
                     </div>
     
-                    <div class="crear-producto crear-producto-precio">
+                    <div class="crear-producto crear-producto-precio" id="sectionPrecioObra">
                         <label for="precio">Precio de la obra</label>
-                        <input value="<%=obraAEditar.precio %>"type="number" name="precio" class="crear-producto-field" placeholder=>
+                        <input value="<%=obraAEditar.precio %>"type="number" name="precio" class="crear-producto-field <%= locals.errors && errors.precio ? 'is-invalid' : null %>" id="precioObra"  placeholder=>
+                        <% if (locals.errors && errors.precio) { %>
+                            <p class="error-message"><%=errors.precio.msg%></p>
+                        <% } %>
                     </div>
 
                     <div class="crear-producto crear-producto-precio">
@@ -122,6 +145,7 @@
         <%- include('partials/footer') %>
     </footer>
 
+    <script src="/js/crearProducto.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>

@@ -60,7 +60,7 @@ router.post ('/crear_producto', uploadFile.single('fotos'),validateCreation, pro
 
 router.get ('/editar_producto/:id', authMiddleware, artistMiddleware, productosController.editProduct);
 
-router.put ('/editar_producto/:id', uploadFile.single('fotos'),productosController.updateProduct);
+router.put ('/editar_producto/:id', uploadFile.single('fotos'),validateCreation,productosController.updateProduct);
 
 router.delete('/:id', productosController.delete);
 
