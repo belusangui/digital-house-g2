@@ -127,7 +127,12 @@ let controller = {
     },
     productId: (req,res) => {
         let idObra = req.params.id
-        db.Producto.findByPk(idObra, {include: [{association: 'artistas'},{association: 'medios'}]})
+        db.Producto.findByPk(idObra, {
+            include: [
+              {
+                association: 'artistas',
+                attributes: [ 'id','nombre_completo' ] 
+              },{association: 'medios'}]})
         .then(function(productoEncontrado) {
           /// borrar datos de artista no relevantes , solo dejar id, nombre y descripcion
             res.json(productoEncontrado);
