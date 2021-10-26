@@ -29,8 +29,11 @@ app.use(userLoggedMiddleware);
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
+const cors = require('cors');
 
-app.listen(process.env.PORT || 3000, () => {
+app.use(cors())
+
+app.listen(process.env.PORT || 3001, () => {
 console.log("Servidor corriendo");
 });
 
