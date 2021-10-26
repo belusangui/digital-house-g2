@@ -121,7 +121,7 @@ let controller = {
             });
             Promise.all([dataProducts, cantDeDataProducts, sumaCat1, sumaCat2, sumaCat3, sumaCat4, sumaCat5, sumaCat6, sumaCat7])
             .then(function([dataProducts, cantDeDataProducts, sumaCat1, sumaCat2, sumaCat3, sumaCat4, sumaCat5, sumaCat6, sumaCat7]){
-                res.json({ dataProducts: dataProducts, cantidadProductos: cantDeDataProducts, cantidadCategoria1: sumaCat1, cantidadCategoria2: sumaCat2, cantidadCategoria3: sumaCat3, cantidadCategoria4: sumaCat4, cantidadCategoria5: sumaCat5, cantidadCategoria6: sumaCat6, cantidadCategoria7: sumaCat7 });
+                res.json({ dataProducts: dataProducts, count: cantDeDataProducts, cantidadCategoria1: sumaCat1, cantidadCategoria2: sumaCat2, cantidadCategoria3: sumaCat3, cantidadCategoria4: sumaCat4, cantidadCategoria5: sumaCat5, cantidadCategoria6: sumaCat6, cantidadCategoria7: sumaCat7 });
             });
         //retorna un objecto con la estructura count( cant de productos)  y products (arreglo de todos los productos) y cant de productos por categoria
     },
