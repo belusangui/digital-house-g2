@@ -144,7 +144,7 @@ let controller = {
         .then(
             function(categorias) {
                 let cantDeCategorias = categorias.length;
-                res.json({count: cantDeCategorias});
+                res.json({count: cantDeCategorias, categorias: categorias});
             })
         //retorna cant total de categorias
     }
