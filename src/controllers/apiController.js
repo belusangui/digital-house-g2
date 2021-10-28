@@ -26,6 +26,14 @@ let controller = {
         })
         //retorna un usuario por id
     },
+    lastUser: (req, res) => {
+        db.Comprador.findAll({attributes: ['id', 'nombre_completo', 'email']})
+        .then(
+            function(usuarios) {
+                let last = usuarios.pop()
+                res.json({last});
+            })
+    },
     artists: (req, res) => {
         db.Artista.findAll({
             attributes: ['id', 'nombre_completo']
@@ -48,6 +56,14 @@ let controller = {
             res.json( {Error: 'Artista inexistente'})
         })
         //retorna un usuario por id
+    },
+    lastArtist: (req, res) => {
+        db.Artista.findAll({attributes: ['id', 'nombre_completo', 'titular', 'img', 'nombre_usuario']})
+        .then(
+            function(artistas) {
+                let last = artistas.pop()
+                res.json({last});
+            })
     },
     allProducts: (req,res) => {
 
@@ -121,7 +137,7 @@ let controller = {
             });
             Promise.all([dataProducts, cantDeDataProducts, sumaCat1, sumaCat2, sumaCat3, sumaCat4, sumaCat5, sumaCat6, sumaCat7])
             .then(function([dataProducts, cantDeDataProducts, sumaCat1, sumaCat2, sumaCat3, sumaCat4, sumaCat5, sumaCat6, sumaCat7]){
-                res.json({ dataProducts: dataProducts, count: cantDeDataProducts, cantidadCategoria1: sumaCat1, cantidadCategoria2: sumaCat2, cantidadCategoria3: sumaCat3, cantidadCategoria4: sumaCat4, cantidadCategoria5: sumaCat5, cantidadCategoria6: sumaCat6, cantidadCategoria7: sumaCat7 });
+                res.json({ dataProducts: dataProducts, count: cantDeDataProducts, cantRetrato: sumaCat1, cantUrbano: sumaCat2, cantNaturaleza: sumaCat3, cantAutoretrato: sumaCat4, cantPaisajismo: sumaCat5, cantDesnudo: sumaCat6, cantAbstracto: sumaCat7 });
             });
         //retorna un objecto con la estructura count( cant de productos)  y products (arreglo de todos los productos) y cant de productos por categoria
     },
@@ -136,6 +152,19 @@ let controller = {
         .then(function(productoEncontrado) {
           /// borrar datos de artista no relevantes , solo dejar id, nombre y descripcion
             res.json(productoEncontrado);
+        })
+        //retorna un producto por id. Tener en cuenta datos de tablas rel (artista, categorias) y ruta img
+    },
+    lastProduct: (req,res) => {
+        db.Producto.findAll({
+            include: [
+              {
+                association: 'artistas',
+                attributes: [ 'id','nombre_completo' ] 
+              },{association: 'medios'}]})
+        .then(function(productos) {
+          let lastProductDataBase = productos.pop()
+            res.json(lastProductDataBase);
         })
         //retorna un producto por id. Tener en cuenta datos de tablas rel (artista, categorias) y ruta img
     },
