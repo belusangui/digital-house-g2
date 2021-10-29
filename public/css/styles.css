@@ -1355,6 +1355,48 @@ input.is-invalid, textarea.is-invalid  {
     border: 2px solid rgb(192, 20, 17);
 }
   
+/* PAGE NOT FOUND */
+
+.caja-not-found{
+    text-align: center;
+    
+}
+
+.titulo-oops{
+    margin-top: 200px;
+    font-size: 8em;
+    font-weight: 600;
+}
+.text-not-found{
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.parrafo-404{
+    padding-top: 5px;
+    padding-bottom: 35px;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+.boton-not-found-home{
+    background-color: #212125;
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none
+}
+
+.boton-not-found-home:hover {
+    background-color:#9E0051;
+    color: white
+}
+
+#body-not-found{
+    background-color: #fdfdfd;
+}
+
 /* MEDIA QUERIES */
 
 @media (min-width: 480px) {
@@ -1479,6 +1521,32 @@ input.is-invalid, textarea.is-invalid  {
         margin-top: 2em;
         margin-left: 1em;
         margin-right: 1em;
+    }
+
+    .titulo-oops{
+        margin-top: 200px;
+        font-size: 5em;
+        font-weight: 600;
+    }
+    .text-not-found{
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    .parrafo-404{
+        padding-top: 5px;
+        padding-bottom: 35px;
+        font-size: 0.9em;
+        font-weight: 400;
+    }
+
+    .boton-not-found-home{
+        background-color: #212125;
+        color: white;
+        padding: 10px 70px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none
     }
 }
 
@@ -1701,6 +1769,32 @@ input.is-invalid, textarea.is-invalid  {
 
     .producto-info-detalle-2 ul {
         flex-wrap: nowrap;
+    }
+
+    .titulo-oops{
+        margin-top: 200px;
+        font-size: 8em;
+        font-weight: 600;
+    }
+    .text-not-found{
+        font-size: 2em;
+        font-weight: 500;
+    }
+    
+    .parrafo-404{
+        padding-top: 5px;
+        padding-bottom: 35px;
+        font-size: 1.1em;
+        font-weight: 400;
+    }
+    
+    .boton-not-found-home{
+        background-color: #212125;
+        color: white;
+        padding: 10px 100px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none
     }
 }
 

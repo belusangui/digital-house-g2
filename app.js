@@ -56,3 +56,8 @@ app.use('/user', rutasUsuarios);
 app.use('/artist', rutasArtista);
 
 app.use('/api', rutasApi)
+
+
+app.use((req, res,next) => {
+  res.status(404).render('not-found')
+})
