@@ -35,6 +35,25 @@
             <h4 class="titulares-terciarios">Sobre <%=artist.nombre_completo%></h4>
             <p class="parrafos"><%=artist.biografia%></p>
             <h4 class="titulares-terciarios">Obras publicadas</h4>
+            <div class="caja-obras-publicadas">
+                <% for (obra of obras)  { %>
+                    <div>
+                        <a href="/galeria/detalle_producto/<%=obra.id%>">
+                            <div class="caja-img-obra">
+                                    <img src="/img/<%=obra.img%>" alt="<%=obra.nombre%>" id="img-obra">
+                                    <div class="imagen-mask"></div>
+                            </div>
+                        </a>
+                        
+                        <div class="detalles-obra">
+                            <p class="textos-mini"><%=obra.nombre%></p>
+                            <p class="textos-mini"><%=obra.ancho%>x<%=obra.alto%>cm%></p>
+                            <a href="/galeria/editar_producto/<%=obra.id%>" id="botonEditarObra" class="textos-mini">Editar</a>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+
         </section>
 
         <%- include('partials/caja-social') %>

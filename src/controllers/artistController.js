@@ -126,10 +126,12 @@ let controller = {
 
 
       perfilArtista: (req, res) => {
-
-        return res.render('perfil_artista', {
-			artist: req.session.userLogged
-		});
+          let idArtist = req.session.userLogged.id;
+          db.Producto.findAll({where: {id_artistaFk: idArtist}}).then(
+              data => {
+                  res.render('perfil_artista', {artist: req.session.userLogged, obras: data })
+              }
+          )
     },
 
     edit: (req, res) => {

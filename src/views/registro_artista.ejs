@@ -36,7 +36,7 @@
                         <% } %>
                     </div>
                     <div class="form-section" id="section-bio">
-                        <label for="biografia">Biografía</label>
+                        <label class="titulares-cuartos" for="biografia">Biografía</label>
                         <textarea name="biografia" id="artist-bio" class="login-field <%= locals.errors && errors.biografia ? 'is-invalid' : null %>" placeholder="Ej: Curriculum vitae, formación, exposiciones, premios"></textarea>
                         <!-- "<%= locals.old && old.biografia ? old.biografia : '' %>" -->
                         <% if (locals.errors && errors.biografia) { %>
@@ -68,14 +68,14 @@
                         <% } %>
                     </div>
                     <div class="form-section" id="section-birth-art">
-                        <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                        <label class="titulares-cuartos" for="fecha_nacimiento">Fecha de nacimiento</label>
                         <input type="date" name="fecha_nacimiento" id="artist-birthday" class="login-field <%= locals.errors && errors.fecha_nacimiento ? 'is-invalid' : null %>" placeholder="Confirmar contraseña">
                         <% if (locals.errors && errors.fecha_nacimiento) { %>
                             <p class="error-message"><%=errors.fecha_nacimiento.msg%></p>
                         <% } %>
                     </div>
                     <div class="form-section" id="section-avatar-art">
-                        <label for="avatar">Foto de perfil</label>
+                        <label class="titulares-cuartos" for="avatar">Foto de perfil</label>
                         <input type="file" name="avatar" id="artist-avatar" class="login-field" >
                     
                     </div>

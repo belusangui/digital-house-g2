@@ -17,7 +17,7 @@
             <div class="login-caja1">
                 <h2 class="titulares-secundarios">Hola,<br>creadores del arte.</h2>
                 <button id="login-google">Ingresar con Google</button>
-                <p class="parrafos">─ o ─</p>
+                <p class="parrafos o-login">─ o ─</p>
                 <form action="/artist/ingresar" id="login-form" method="POST">
                     <div class="form-section">
                         <input type="email" name="email" class="login-field <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="Email">
@@ -46,7 +46,7 @@
             </div>
             <div class="opcion-registrarse-desktop">
                 <h2 class="titulares-terciarios">Regístrate.</h2>
-                <p class="parrafos">Si todavía no tienes una cuenta, usá esta opción para acceder a nuestro formulario de registro.</p>
+                <p class="parrafos parrafos-login">Si todavía no tienes una cuenta, usá esta opción para acceder a nuestro formulario de registro.</p>
                 <a href="./crear_artista" id="opcion-crear-cuenta">Crear tu cuenta</a>
             </div>
         </section>
