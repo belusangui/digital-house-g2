@@ -25,6 +25,7 @@ Marron claro logo: #CD9983
     font-size: 1em;
     letter-spacing: 0.1em;
     line-height: 1.5em;
+    text-align: justify;
 }
 
 .textos-mini{ 
@@ -1220,12 +1221,63 @@ li.productoCarrito{
 }
  /* FIN CARRITO */
 
+ #banner-artist {
+    width: 100%;
+    margin-top: 5em;
+    max-height: 200px;
+ }
 .perfil-usuario-caja {
-    width:80%;
-    margin: 100px 5em auto auto;
-    padding-bottom: 2em;
+    width: 95%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 4.5em auto 0em auto;
+    padding: 2em;
 }
 
+/* perfil artista */
+
+.main-perfil {
+    background-color: #F5F5F7;
+}
+
+.contenedor-img-artist {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    bottom: -75px;
+    left: 32%;
+}
+
+.banner-perfil-artista {
+    position: relative;
+}
+
+#img-artist {
+    width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    border: 3px solid rgba(245,245,247, 0.7);
+    
+}
+
+.titular-artista {
+    font-style: italic;
+    font-weight: 500;
+}
+.contenedor-datos-artist {
+    margin: auto;
+    text-align: center;
+}
+
+.caja-datos-artist-peque {
+    padding-left: 1.5em;
+    margin-left: 2em;
+    margin-bottom: 1.5em;
+    text-align: left;
+    border-left: solid 1px #CD9983 ;
+}
 /* GALERIA Todos los productos */
 
 .galeria-titulo{
@@ -1403,6 +1455,20 @@ input.is-invalid, textarea.is-invalid  {
 
     /*tablets y larger smartphones*/
 
+    .contenedor-datos-artist {
+        padding-left:7em;
+        margin-left:7em;
+        text-align: left;
+    }
+
+    .perfil-usuario-caja {
+        margin: 0.8em auto 0em auto
+    }
+    .contenedor-img-artist {
+        bottom: -75px;
+        left: 10%;
+    }
+
     #logo-copyright {
         flex-direction: row-reverse;
     }
@@ -1551,6 +1617,11 @@ input.is-invalid, textarea.is-invalid  {
 }
 
 @media (min-width: 769px) {
+
+    .contenedor-datos-artist {
+        padding-left:6em;
+        margin-left:5em;
+    }
 
     #nav-mobile {
         display: none;
@@ -1803,6 +1874,20 @@ input.is-invalid, textarea.is-invalid  {
 
 
 @media (min-width: 1280px) {
+
+    .contenedor-img-artist {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        bottom: -75px;
+        left: 150px;
+    }
+
+    .contenedor-datos-artist {
+        padding-left:4em;
+        margin-left:4em;
+        margin-bottom: 1.5em;
+    }
 
     #barra-navegacion {
         max-width: 1280px;

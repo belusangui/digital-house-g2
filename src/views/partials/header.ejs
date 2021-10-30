@@ -26,16 +26,23 @@
                                    <% } %>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <% if(locals.usuarioLogueado){ %>
-                                    <li class="login"><a href="/user/mi_perfil/<%= locals.usuarioLogueado.id %>">Mi Perfil</i></a></li>
-                                    <% if(locals.usuarioLogueado.nombre_usuario){ %>
+
+                                <% if( locals.usuarioLogueado && locals.usuarioLogueado.nombre_usuario){ %>
+                                        <li class="login"><a href="/artist/mi_perfil/<%= locals.usuarioLogueado.id %>">Mi Perfil</i></a></li>
                                         <li class="login"><a href="/galeria/crear_producto">Publicar Obras</a></li>
-                                        <% } %>
-                                    <li class="login"><a href="/user/logout">Log Out</a></li>
-                                    <% }else{ %>
-                                <li class="login"><a href="/user/ingresar" id="botonIngresar">Comprador</a></li>
-                                <li class="login"><a href="/artist/ingresar" id="botonIngresar">Artista</a></li>
-                                     <% } %>
+                                        
+                                    <% } else if (locals.usuarioLogueado) { %>
+                                        <li class="login"><a href="/user/mi_perfil/<%= locals.usuarioLogueado.id %>">Mi Perfil</i></a></li>
+                                    <% } %>
+                                             
+                                    <% if(!locals.usuarioLogueado){ %>
+                                        <li class="login"><a href="/user/ingresar" id="botonIngresar">Comprador</a></li>
+                                        <li class="login"><a href="/artist/ingresar" id="botonIngresar">Artista</a></li>
+                                    <% } else { %> 
+                                        <li class="login"><a href="/user/logout">Log Out</a></li>
+                                    <% } %>   
+                                        
+
                             </ul>
                           </li>
                 </ul>
